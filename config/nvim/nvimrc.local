@@ -1,0 +1,120 @@
+" Setup leader, etc.
+let mapleader = ','
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader><space> :StripWhitespace<CR>
+nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+noremap <silent> <leader>V :source ~/.config/nvim/nvimrc<CR>:filetype detect<CR>:exe ":echo 'nvimrc reloaded'"<CR>
+
+" Update name of buffer to filename
+autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
+set title
+set exrc
+set secure
+
+" Don't highlight current line
+set nocursorline
+
+" Fix fish issues
+set shell=sh
+set path=$PWD/**
+
+" Don't create swap files
+set noswapfile
+
+" Setup indent
+filetype plugin indent on
+
+" Spaces and tabs
+set tabstop=2
+set softtabstop=2
+set backspace=2
+set shiftwidth=2
+set fileformat=unix
+
+" reindent file
+map <leader>i mzgg=G`z<CR>
+
+" Tab through buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+
+vnoremap p "_dP
+nnoremap <D-c> "+y
+nnoremap <D-v> "+p
+tnoremap <Esc> <C-\><C-n>
+
+" More natural splits
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+" Enable gitgutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_async = 0
+
+" Airline setup
+let g:airline_enable_hunks = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+set laststatus=2
+let g:airline_theme='one'
+
+" Open file browser on start
+let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeRespectWildIgnore=1
+
+" Ale setup
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\}
+
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+
+" Set as js as typescript to get highlighting
+autocmd BufNewFile,BufRead *.js setlocal filetype=typescript
+
+" Tabular
+let g:haskell_tabular = 1
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
+vmap a* :Tabularize /<\*><CR>
+
+" FZF fuzzy text search mappings
+nnoremap ; :Files<CR>
+nnoremap <leader>; :GFiles<CR>
+" nnoremap <leader>; :Lines<CR>
+nmap \ :Rg<CR>
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '14%'})
+
+" Set root dir for non-projects, Rooter plugin
+let g:rooter_change_directory_for_non_project_files = 'current'
+
+" Fix problem with auto-close and esc
+let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
+
+" Color scheme
+colorscheme one
+set background=dark
+" set background=light
+" TODO setup italics
+
+let g:deoplete#enable_at_startup = 1

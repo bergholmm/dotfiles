@@ -1,0 +1,6 @@
+.DS_Store
+config/nvim/bundle/*
+fishd.*
+fish_history*
+old
+*secret*

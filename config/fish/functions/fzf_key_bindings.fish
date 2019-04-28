@@ -1,0 +1,1 @@
+/Users/mabe/dotfiles/config/nvim/bundle/fzf/shell/key-bindings.fish

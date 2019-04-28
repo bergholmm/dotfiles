@@ -33,5 +33,6 @@ nvim +PluginInstall +qall
 
 ## TODOs
 ```
-[ ] Setup linux installer 
+[ ] Setup linux installer
+[ ] Setup prettier rules
 ```

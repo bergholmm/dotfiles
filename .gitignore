@@ -4,3 +4,5 @@ fishd.*
 fish_history*
 old
 *secret*
+config/fish/conf.d/pure.fish
+config/fish/functions/*

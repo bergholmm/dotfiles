@@ -36,10 +36,14 @@ cd -
 cd ./config/nvim/bundle/fzf
 ./install --all
 cd -
+cd ./config/nvim/bundle/LanguageClient-neovim
+./install.sh
+cd -
 
-echo "Installing yarn"
+echo "Installing yarn + packages"
 brew install yarn
 yarn global add prettier
+yarn global add javascript-typescript-langserver
 
 echo "Installing Google chrome"
 brew cask install google-chrome

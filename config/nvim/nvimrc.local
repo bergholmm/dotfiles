@@ -113,8 +113,10 @@ let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
 " Color scheme
 colorscheme one
 set background=dark
-" set background=light
-" TODO setup italics
+
+if $ITERM_PROFILE =~ "light"
+  set background=light
+endif
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1

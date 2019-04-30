@@ -2,10 +2,7 @@ set nocompatible
 set shell=/bin/bash
 
 syntax enable
-
-if has('nvim') || has('termguicolors')
-  set termguicolors
-endif
+set termguicolors
 
 if has('nvim')
   runtime! python_setup.vim

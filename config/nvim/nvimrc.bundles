@@ -1,6 +1,7 @@
 " Base bundles
 Bundle 'gmarik/vundle'
 Bundle 'Shougo/vimproc.vim'
+Bundle 'tpope/vim-repeat'
 
 " File browser
 Bundle 'scrooloose/nerdtree'
@@ -14,6 +15,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-rooter'
 Bundle 'junegunn/fzf'
 Bundle 'junegunn/fzf.vim'
+Bundle 'christoomey/vim-system-copy'
 
 " Appearance
 Bundle 'majutsushi/tagbar'
@@ -36,3 +38,8 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'godlygeek/tabular'
+Bundle 'christoomey/vim-sort-motion'
+Bundle 'kana/vim-textobj-indent'
+
+" Temp
+Bundle 'takac/vim-hardtime'

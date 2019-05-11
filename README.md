@@ -10,7 +10,7 @@ cd ~/dotfiles
 ./install_macos.bash
 ```
 
-linux (Currently not implemented)
+linux
 ```bash
 git clone https://github.com/bergholmm/dotfiles.git ~/dotfiles
 cd ~/dotfiles
@@ -33,6 +33,6 @@ nvim +PluginInstall +qall
 
 ## TODOs
 ```
-[ ] Setup linux installer
+[x] Setup linux installer
 [ ] Setup prettier rules
 ```

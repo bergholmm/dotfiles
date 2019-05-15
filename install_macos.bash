@@ -15,8 +15,16 @@ echo "Installing iTerm2"
 brew tap caskroom/versions
 brew cask install iterm2-nightly
 
-echo "Installing ripgrep"
+echo "Installing yarn"
+brew install yarn
+
+echo "Installing fonts"
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+
+echo "Installing ripgrep + fzf"
 brew install ripgrep
+brew install fzf
 
 echo "Setting up Neovim"
 brew install python
@@ -36,14 +44,10 @@ cd -
 cd ./config/nvim/bundle/fzf
 ./install --all
 cd -
-cd ./config/nvim/bundle/LanguageClient-neovim
-./install.sh
+cd ./config/nvim/bundle/coc.nvim
+./install.sh nightly
 cd -
-
-echo "Installing yarn + packages"
-brew install yarn
-yarn global add prettier
-yarn global add javascript-typescript-langserver
+nvim +CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css +qall
 
 echo "Installing Google chrome"
 brew cask install google-chrome

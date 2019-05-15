@@ -1,6 +1,6 @@
 " Setup leader, etc.
 let mapleader = ','
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader><space> :StripWhitespace<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
@@ -44,6 +44,10 @@ map <leader>i mzgg=G`z<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
+" Up/down
+noremap <Space> <C-d>
+noremap <C-Space> <C-u>
+
 " Easier split switches
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -71,22 +75,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 set laststatus=2
 let g:airline_theme='one'
 
-" Open file browser on start
+" NEARTree
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeRespectWildIgnore=1
-
-" Ale setup
-let g:ale_fixers = {}
-let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
-let g:ale_fixers['javasript'] = ['prettier']
-let g:ale_fixers['typescript'] = ['prettier']
-let g:ale_fix_on_save = 1
-
-nnoremap <leader>s :ALEGoToDefinitionInVSplit<CR>
-nnoremap <leader>a :ALEFindReferences<CR>
-
-" Set as js as typescript to get highlighting
-autocmd BufNewFile,BufRead *.js setlocal filetype=typescript
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 
 " Tabular
 let g:haskell_tabular = 1
@@ -95,24 +88,42 @@ vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 vmap a* :Tabularize /<\*><CR>
 
-" FZF fuzzy text search mappings
-nnoremap <leader>; :Files<CR>
-nnoremap ; :GFiles<CR>
-nmap \ :Rg<CR>
+" Denite
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#var('buffer', 'date_format', '')
 
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+let s:denite_options = {'default' : {
+\ 'auto_resize': 1,
+\ 'prompt': 'λ:',
+\ 'direction': 'rightbelow',
+\ 'winminheight': '10',
+\ 'highlight_mode_insert': 'Visual',
+\ 'highlight_mode_normal': 'Visual',
+\ 'prompt_highlight': 'Function',
+\ 'highlight_matched_char': 'Function',
+\ 'highlight_matched_range': 'Normal'
+\ }}
 
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+function! s:profile(opts) abort
+  for l:fname in keys(a:opts)
+    for l:dopt in keys(a:opts[l:fname])
+      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+    endfor
+  endfor
+endfunction
 
-" Advanced customization using autoload functions
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '14%'})
+call s:profile(s:denite_options)
+
+nmap ' :Denite buffer -split=floating -winrow=1<CR>
+nmap ; :Denite file/rec -split=floating -winrow=1<CR>
+nnoremap \ :<C-u>Denite grep:. -no-empty -mode=normal<CR>
+nnoremap <leader>\ :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
 " Set root dir for non-projects, Rooter plugin
 let g:rooter_change_directory_for_non_project_files = 'current'
@@ -128,16 +139,30 @@ if $ITERM_PROFILE =~ "light"
   set background=light
 endif
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources = {'_': ['ale']}
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Coc
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
-let g:LanguageClient_serverCommands = {
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ 'javascript': ['javascript-typescript-stdio']
-      \ }
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>F  <Plug>(coc-format-selected)
+nmap <leader>F  <Plug>(coc-format-selected)
+
+set cmdheight=2
 
 " Hard time always on
 let g:hardtime_default_on = 1
+
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif

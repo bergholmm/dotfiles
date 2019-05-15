@@ -25,3 +25,5 @@ alias decrypt 'openssl enc -aes-256-cbc -a -d'
 function fish_mode_prompt
   # NOOP - Disable vim mode indicator
 end
+
+set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'

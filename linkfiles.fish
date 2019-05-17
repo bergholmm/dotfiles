@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set files config/* tmux.conf
+set files config/* tmux.conf skhdrc chunkwmrc
 set dir ~/dotfiles
 set olddir ~/dotfiles/old
 

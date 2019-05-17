@@ -78,8 +78,6 @@ let g:airline_theme='one'
 " NEARTree
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeRespectWildIgnore=1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]', '\.idea$[[dir]]', '\.sass-cache$']
 
 " Tabular
 let g:haskell_tabular = 1
@@ -161,7 +159,7 @@ nmap <leader>F  <Plug>(coc-format-selected)
 set cmdheight=2
 
 " Hard time always on
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()

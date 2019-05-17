@@ -55,6 +55,12 @@ brew cask install google-chrome
 # Remove last login when starting new terminal
 touch ~/.hushlogin
 
+# Setup chunkwm + skhd
+brew install skhd
+brew install chunkwm
+brew services start skhd
+brew services start chunkwm
+
 echo "Setting up omf"
 curl -L https://get.oh-my.fish | fish
 omf install direnv
@@ -62,5 +68,7 @@ omf install https://github.com/jhillyerd/plugin-git
 omf install bass
 omf install pure
 ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish
+
+
 
 echo "Setup iTerm2 tab-bar/tabs: https://www.felixjung.io/posts/pretty-iterm2-with-a-modern-titlebar/"

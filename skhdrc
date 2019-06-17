@@ -20,10 +20,10 @@ shift + alt - k : chunkc tiling::window --swap north
 shift + alt - l : chunkc tiling::window --swap east
 
 # move window
-shift + cmd - h : chunkc tiling::window --warp west
-shift + cmd - j : chunkc tiling::window --warp south
-shift + cmd - k : chunkc tiling::window --warp north
-shift + cmd - l : chunkc tiling::window --warp east
+# shift + cmd - h : chunkc tiling::window --warp west
+# shift + cmd - j : chunkc tiling::window --warp south
+# shift + cmd - k : chunkc tiling::window --warp north
+# shift + cmd - l : chunkc tiling::window --warp east
 
 # create desktop, move window and follow focus
 shift + alt - n : chunkc tiling::desktop --create;\

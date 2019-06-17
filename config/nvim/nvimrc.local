@@ -54,6 +54,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Faster navigation up/down
+nnoremap <C-J> 5j
+nnoremap <C-K> 5k
+
 vnoremap p "_dP
 nnoremap <D-c> "+y
 nnoremap <D-v> "+p
@@ -118,8 +122,8 @@ endfunction
 
 call s:profile(s:denite_options)
 
-nmap ' :Denite buffer -split=floating -winrow=1<CR>
-nmap ; :Denite file/rec -split=floating -winrow=1<CR>
+nmap <leader>' :Denite buffer -split=floating -winrow=1<CR>
+nmap <leader>; :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap \ :<C-u>Denite grep:. -no-empty -mode=normal<CR>
 nnoremap <leader>\ :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
 
@@ -148,7 +152,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)

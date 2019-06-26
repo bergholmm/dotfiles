@@ -30,6 +30,9 @@ set noswapfile
 " Setup indent
 filetype plugin indent on
 
+" Close buffer without closing the window
+command Bd bp\|bd \#
+
 " Spaces and tabs
 set tabstop=2
 set softtabstop=2

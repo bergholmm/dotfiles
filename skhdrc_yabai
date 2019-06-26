@@ -1,3 +1,10 @@
+# Bind apps
+ctrl - return : open -nF /Applications/iTerm.app
+ctrl - 1 : open -nF /Applications/Google Chrome.app
+ctrl - 2 : open ~/
+ctrl - 3 : open -nF /Applications/Slack.app
+ctrl - 4 : open -nF /Applications/Spotify.app
+
 # focus window
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
@@ -40,7 +47,7 @@ cmd + alt - n : yabai -m space --create;\
                 yabai -m space --focus $(echo ${id:10:${#id}-10})
 
 # destroy desktop
-cmd + alt - w : yabai -m space --destroy
+alt - w : yabai -m space --destroy
 
 # fast focus desktop
 alt - 1 : yabai -m space --focus 1

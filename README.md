@@ -1,5 +1,5 @@
 # dotfiles
-Dotfiles for neovim, iTerm2, fish, etc.
+Dotfiles for Neovim, iTerm2, Fish, etc.
 
 ## Installation
 
@@ -17,7 +17,7 @@ cd ~/dotfiles
 ./install_linux.bash
 ```
 
-## Extra
+## Linking files
 
 Only link dotfiles (fish shell required):
 ```bash
@@ -30,6 +30,10 @@ Only install nvim plugins:
 ```bash
 nvim +PluginInstall +qall
 ```
+
+## Screenshot
+
+![](Screenshot.png)
 
 ## TODOs
 ```

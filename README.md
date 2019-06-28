@@ -1,6 +1,8 @@
 # dotfiles
 Dotfiles for Neovim, iTerm2, Fish, etc.
 
+![](Screenshot.png)
+
 ## Installation
 
 macos
@@ -30,10 +32,6 @@ Only install nvim plugins:
 ```bash
 nvim +PluginInstall +qall
 ```
-
-## Screenshot
-
-![](Screenshot.png)
 
 ## TODOs
 ```

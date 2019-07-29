@@ -30,3 +30,5 @@ set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
 set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
+
+set -x LC_ALL en_US.UTF-8

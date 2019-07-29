@@ -1,1 +1,1 @@
-/Users/marcus.bergholm/dotfiles/config/nvim/bundle/fzf/shell/key-bindings.fish
+/Users/mabe/dotfiles/config/nvim/bundle/fzf/shell/key-bindings.fish

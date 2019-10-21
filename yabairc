@@ -6,7 +6,7 @@ yabai -m config status_bar_text_font         "Hack:Regular:12.0"
 yabai -m config status_bar_icon_font         "Font Awesome 5 Free:Solid:12.0"
 yabai -m config status_bar_background_color  0xff292C34
 yabai -m config status_bar_foreground_color  0xffACB2BE
-yabai -m config status_bar_space_icon_strip           
+yabai -m config status_bar_space_icon_strip         
 yabai -m config status_bar_power_icon_strip   
 yabai -m config status_bar_space_icon        
 yabai -m config status_bar_clock_icon        
@@ -40,9 +40,11 @@ yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 yabai -m rule --add app=iTerm space=1
-yabai -m rule --add app=Google\ Chrome space=2
-yabai -m rule --add app=Slack space=3
-yabai -m rule --add app=Finder space=4
-yabai -m rule --add app=Spotify space=5
+yabai -m rule --add app=Visual\ Studio\ Code space=2
+yabai -m rule --add app=Google\ Chrome space=3
+yabai -m rule --add app=Slack space=4
+yabai -m rule --add app=Microsoft\ Outlook space=5
+yabai -m rule --add app=Finder space=6
+yabai -m rule --add app=Spotify space=7
 
 echo "yabai configuration loaded.."

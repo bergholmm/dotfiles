@@ -12,7 +12,11 @@ alias vim nvim
 set -gx EDITOR nvim
 
 # Android path
-set -gx ANDROID_HOME /usr/local/share/android-sdk
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+set -gx PATH $PATH:$ANDROID_HOME/emulator
+set -gx PATH $PATH:$ANDROID_HOME/tools
+set -gx PATH $PATH:$ANDROID_HOME/tools/bin
+set -gx PATH $PATH:$ANDROID_HOME/platform-tools
 
 # Setpu direnv
 eval (direnv hook fish)
@@ -32,3 +36,4 @@ set -g fish_user_paths "/usr/local/opt/sqlite/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 
 set -x LC_ALL en_US.UTF-8
+

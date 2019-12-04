@@ -3,20 +3,12 @@
 ```
 <leader> : ,
 
-f  : find
-t  : (find)to
+
 ct : change+to+char
 cf : change+find+char
-
-H  : Go top
-M  : Go middle
-L  : Go bottom
-
 iw : in word
 ip : in paragraph
 i" : in ""
-it : in tag
-as :
 
 <leader>y : system copy
 <leader>yy : system copy line

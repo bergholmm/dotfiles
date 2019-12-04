@@ -22,7 +22,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rakr/vim-one'
+Plugin 'sonph/onehalf'
 
 " Syntax highlighting and auto-complete
 Plugin 'neoclide/coc.nvim'

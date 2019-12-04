@@ -60,7 +60,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 set laststatus=2
-let g:airline_theme='one'
 
 " Tabular
 let g:haskell_tabular = 1
@@ -76,12 +75,9 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
 
 " Color scheme
-colorscheme one
+colorscheme onehalfdark
 set background=dark
-
-if $ITERM_PROFILE =~ "light"
-  set background=light
-endif
+let g:airline_theme='onehalfdark'
 
 " Hard time always on
 let g:hardtime_default_on = 0

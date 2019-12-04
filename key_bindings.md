@@ -18,9 +18,9 @@ i" : in ""
 it : in tag
 as :
 
-cp : system copy
-cP : system copy line
-cv : sytem paste
+<leader>y : system copy
+<leader>yy : system copy line
+<leader>p : sytem paste
 
 gu : make lowercase
 gU : make uppercase
@@ -49,25 +49,29 @@ gs2j : sort two lines down
 gsip : sort current paragraph
 gsii : sort current indentation
 
-<leader>d : NERDTree
-<leader>f : Find current in NERDTree
 <leader>space : strip whitespace
 <leader>i : indent file
 
 <Tab> : next buffer
 <S-Tab> : prev buffer
 
-<leader>; : search for file
-; : search for git file
-\ : search in files
+<leader>ff : search for file
+<leader>fl : search lines
+<leader>fr : search for reference
+<leader>fm : list most recently used files
 
-<leader>s : Go to def (ale)
-<leader>a : Find refs (ale)
+gd : go to def
+gr : find refs
+gy : go to type def
+gi : go to implementation
+
+K : display docs
+
+qf : autofix current line (if linting is setup)
+
+<Tab> : autocomplete (when pum is visable)
+<S-Tab>: backwards Autocomplete (when pum is visable)
+
+<leader>bd : close buffer without closing window
+<leader>d : open ranger (file explorer)
 ```
-
-## TODOs
-
-[x] https://github.com/takac/vim-hardtime
-[ ] vinegar.vim
-[ ] replacewithregister
-[x] Set up ale find def, find ref, etc

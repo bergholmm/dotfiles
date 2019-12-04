@@ -41,9 +41,6 @@ nvim +UpdateRemotePlugins +qall
 cd ./config/nvim/bundle/vimproc.vim
 make
 cd -
-cd ./config/nvim/bundle/fzf
-./install --all
-cd -
 cd ./config/nvim/bundle/coc.nvim
 ./install.sh nightly
 cd -
@@ -56,12 +53,12 @@ brew cask install google-chrome
 touch ~/.hushlogin
 
 echo "Setup yabai and skhd"
-brew tap koekeishiya/formulae
-brew install skhd
-brew install yabai
-sudo yabai --install-sa
-brew services start skhd
-brew services start yabai
+# brew tap koekeishiya/formulae
+# brew install skhd
+# brew install yabai
+# sudo yabai --install-sa
+# brew services start skhd
+# brew services start yabai
 
 echo "Setting up omf"
 curl -L https://get.oh-my.fish | fish
@@ -72,4 +69,4 @@ omf install pure
 ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish
 
 echo "Setup iTerm2 tab-bar/tabs: https://www.felixjung.io/posts/pretty-iterm2-with-a-modern-titlebar/"
-echo "Setup SIP https://koekeishiya.github.io/chunkwm/docs/sa.html"
+# echo "Setup SIP https://koekeishiya.github.io/chunkwm/docs/sa.html"

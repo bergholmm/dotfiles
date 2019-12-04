@@ -5,19 +5,17 @@ Bundle 'tpope/vim-repeat'
 Bundle 'easymotion/vim-easymotion'
 
 " File browser
-Bundle 'scrooloose/nerdtree'
-Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'octref/RootIgnore'
+Plugin 'rbgrouleff/bclose.vim'
+Plugin 'francoiscabrol/ranger.vim'
 
 " Search and utilities
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-eunuch'
 Bundle 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-rooter'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
 Bundle 'christoomey/vim-system-copy'
-Bundle 'Shougo/denite.nvim'
+Plugin 'Yggdroot/LeaderF'
 
 " Appearance
 Bundle 'majutsushi/tagbar'
@@ -27,7 +25,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rakr/vim-one'
 
 " Syntax highlighting and auto-complete
-Plugin 'sheerun/vim-polyglot'
 Plugin 'neoclide/coc.nvim'
 
 " Text editing
@@ -41,6 +38,3 @@ Bundle 'christoomey/vim-sort-motion'
 " Temp
 Bundle 'takac/vim-hardtime'
 
-"
-Bundle 'ryanoasis/vim-devicons'
-Bundle 'tiagofumo/vim-nerdtree-syntax-highlight'

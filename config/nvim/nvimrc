@@ -61,16 +61,40 @@ set listchars=tab:▸\ ,trail:▫
 set noshowcmd
 set noshowmode
 set number                                                   " show line numbers
+set relativenumber
+set nocursorline
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
 set shiftwidth=4                                             " normal mode indentation commands use 2 spaces
 set showcmd
+set cmdheight=2
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=4                                            " insert mode tab and backspace use 2 spaces
 set tabstop=4                                                " actual tabs occupy 8 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set nobackup
+set nowritebackup
+set noswapfile
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+" More natural splits
+set splitbelow          " Horizontal split below current.
+set splitright          " Vertical split to right of current.
+
+" Spaces and tabs
+set tabstop=2
+set softtabstop=2
+set backspace=2
+set shiftwidth=2
+set fileformat=unix
+
+" Fix fish issues
+set shell=sh
+set path=$PWD/**
 
 if filereadable(expand("~/.config/nvim/nvimrc.local"))
   source ~/.config/nvim/nvimrc.local

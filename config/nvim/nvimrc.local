@@ -75,9 +75,12 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
 
 " Color scheme
-colorscheme onehalfdark
 set background=dark
-let g:airline_theme='onehalfdark'
+let g:onedark_terminal_italics = 1
+let g:airline_theme='onedark'
+colorscheme onedark
+" colorscheme onehalfdark
+" let g:airline_theme='onehalfdark'
 
 " Hard time always on
 let g:hardtime_default_on = 0

@@ -27,8 +27,11 @@ cd ~/dotfiles
 ./linkfiles.fish
 ```
 
+## Neovim
+
 Only install nvim plugins:
 
 ```bash
 nvim +PluginInstall +qall
-
+nvim +UpdateRemotePlugins +qall
+```

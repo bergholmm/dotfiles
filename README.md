@@ -31,10 +31,4 @@ Only install nvim plugins:
 
 ```bash
 nvim +PluginInstall +qall
-```
 
-## TODOs
-```
-[x] Setup linux installer
-[ ] Setup prettier rules
-```

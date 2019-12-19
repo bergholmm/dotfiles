@@ -37,3 +37,13 @@ set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 
 set -x LC_ALL en_US.UTF-8
 
+# Use "r" as command for ranger with the addition that is changes
+# the current directory for fish when exited
+function r
+    set tmpfile "/tmp/pwd-from-ranger"
+    ranger --choosedir=$tmpfile $argv
+    set rangerpwd (cat $tmpfile)
+    if test "$PWD" != $rangerpwd
+        cd $rangerpwd
+    end
+end

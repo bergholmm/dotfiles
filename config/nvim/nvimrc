@@ -11,6 +11,7 @@ endif
 if has('nvim')
   runtime! python_setup.vim
 endif
+
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
@@ -35,6 +36,7 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
+
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell

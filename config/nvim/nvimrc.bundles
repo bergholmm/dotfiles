@@ -35,7 +35,3 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'godlygeek/tabular'
 Bundle 'christoomey/vim-sort-motion'
-
-" Temp
-Bundle 'takac/vim-hardtime'
-

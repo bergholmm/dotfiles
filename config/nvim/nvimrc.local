@@ -35,8 +35,13 @@ nmap <leader>p <Plug>SystemPaste
 nmap <leader>yy <Plug>SystemCopyLine
 tnoremap <Esc> <C-\><C-n>
 
+" Close buffer
+nmap <leader>c :bd<CR>
+
 " EasyMotion
 let g:EasyMotion_smartcase = 1
+nmap <leader><leader>l <Plug>(easymotion-overwin-line)
+nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 
 " Enable gitgutter
 let g:gitgutter_enabled = 1

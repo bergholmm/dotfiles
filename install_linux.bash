@@ -1,6 +1,5 @@
+# WIP: needs to be updated for Arch-linux
 sudo pacman -S fish
-sudo pacman -S pacaur
-
 chsh -s `which fish`
 
 sudo pacman -S ripgrep
@@ -16,22 +15,8 @@ nvim +UpdateRemotePlugins +qall
 cd ./config/nvim/bundle/vimproc.vim
 make
 cd -
-cd ./config/nvim/bundle/fzf
-./install --all
-cd -
-cd ./config/nvim/bundle/LanguageClient-neovim
-./install.sh
-cd -
-
-yarn global add prettier
-yarn global add javascript-typescript-langserver
-
-sudo pacman -S chromium
-
-pacaur -S direnv
 
 curl -L https://get.oh-my.fish | fish
-omf install direnv
 omf install https://github.com/jhillyerd/plugin-git
 omf install bass
 omf install pure

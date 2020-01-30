@@ -3,13 +3,6 @@
 ```
 <leader> : ,
 
-
-ct : change+to+char
-cf : change+find+char
-iw : in word
-ip : in paragraph
-i" : in ""
-
 <leader>y : system copy
 <leader>yy : system copy line
 <leader>p : sytem paste
@@ -56,6 +49,7 @@ gd : go to def
 gr : find refs
 gy : go to type def
 gi : go to implementation
+<C-o> : go back
 
 K : display docs
 
@@ -64,6 +58,9 @@ qf : autofix current line (if linting is setup)
 <Tab> : autocomplete (when pum is visable)
 <S-Tab>: backwards Autocomplete (when pum is visable)
 
-<leader>bd : close buffer without closing window
+<leader>c : close buffer
 <leader>d : open ranger (file explorer)
+
+<leader><leader>w : navigation by word (easymotion)
+<leader><leader>l : line navigation (easymotion)
 ```

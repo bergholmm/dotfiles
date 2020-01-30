@@ -1,8 +1,6 @@
 # dotfiles
 Dotfiles for Neovim, iTerm2, Fish, etc.
 
-![](Screenshot.png)
-
 ## Installation
 
 macos

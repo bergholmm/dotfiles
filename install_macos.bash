@@ -12,16 +12,12 @@ echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
 echo "Installing packages"
+brew install nvm node yarn ripgrep fzf ranger python python2 neovim
 brew tap caskroom/versions
-brew cask install iterm2-nightly
-brew install yarn
-brew install ripgrep
-brew install fzf
-brew install ranger
-brew install python
-brew install python2
-brew install neovim
-brew cask install brave
+brew cask install iterm2-nightly brave
+brew tap heroku/brew
+brew install heroku
+brew install Rigellute/tap/spotify-tui
 
 echo "Linking files"
 fish ./linkfiles.fish

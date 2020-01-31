@@ -3,7 +3,7 @@ yay -S fish
 chsh -s `which fish`
 
 echo "Installing packages"
-yay -S ripgrep fzf neovim yarn npm nvm brave ranger
+yay -S ripgrep fzf neovim node nvm yarn brave ranger heroku spotify-tui
 
 echo "Linking files"
 fish ./linkfiles.fish

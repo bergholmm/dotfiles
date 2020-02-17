@@ -35,3 +35,6 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'godlygeek/tabular'
 Bundle 'christoomey/vim-sort-motion'
+
+" Note taking, docs, todo lists
+Bundle 'vimwiki/vimwiki'

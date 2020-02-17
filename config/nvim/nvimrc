@@ -2,6 +2,7 @@ set nocompatible
 set shell=/bin/bash
 
 syntax enable
+syntax on
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -27,6 +28,7 @@ endif
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
+filetype plugin on
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a

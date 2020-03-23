@@ -27,6 +27,7 @@ nvim +CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css +qall
 echo "Setting up fish"
 curl -L https://get.oh-my.fish | fish
 omf install https://github.com/jhillyerd/plugin-git
+omf install direnv
 omf install bass
 omf install pure
 

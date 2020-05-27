@@ -2,27 +2,29 @@
 Bundle 'gmarik/vundle'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'tpope/vim-repeat'
-Bundle 'easymotion/vim-easymotion'
 
 " File browser
-Bundle 'octref/RootIgnore'
-Plugin 'rbgrouleff/bclose.vim'
 Plugin 'francoiscabrol/ranger.vim'
+Plugin 'rbgrouleff/bclose.vim'
+
+" Git
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
 
 " Search and utilities
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-eunuch'
-Bundle 'terryma/vim-multiple-cursors'
-Plugin 'airblade/vim-rooter'
-Bundle 'christoomey/vim-system-copy'
 Plugin 'Yggdroot/LeaderF'
+Bundle 'octref/RootIgnore'
+Plugin 'airblade/vim-rooter'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'christoomey/vim-system-copy'
 
 " Appearance
-Bundle 'majutsushi/tagbar'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'junegunn/goyo.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'joshdick/onedark.vim'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " Syntax highlighting and auto-complete
 Plugin 'neoclide/coc.nvim'
@@ -36,5 +38,5 @@ Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'godlygeek/tabular'
 Bundle 'christoomey/vim-sort-motion'
 
-" Note taking, docs, todo lists
-Bundle 'vimwiki/vimwiki'
+" Other
+Plugin 'metakirby5/codi.vim'

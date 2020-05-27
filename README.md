@@ -12,9 +12,6 @@ cd ~/dotfiles
 
 linux
 ```bash
-git clone https://github.com/bergholmm/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./install_linux.bash
 ```
 
 ## Linking files

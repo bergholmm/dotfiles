@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Installing command line tools"
 xcode-select --install
 
@@ -12,12 +14,13 @@ echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
 echo "Installing packages"
-brew install nvm node yarn ripgrep fzf ranger python python2 neovim
+brew install nvm node yarn ripgrep fzf ranger python python2 neovim direnv
 brew tap caskroom/versions
-brew cask install iterm2-nightly brave
+brew cask install iterm2-nightly brave google-chrome firefox insomnia slack visual-studio-code spotify docker
 brew tap heroku/brew
 brew install heroku
-brew install Rigellute/tap/spotify-tui
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 
 echo "Linking files"
 fish ./linkfiles.fish
@@ -33,7 +36,7 @@ cd ./config/nvim/bundle/vimproc.vim
 make
 cd -
 cd ./config/nvim/bundle/coc.nvim
-./install.sh nightly
+yarn install --frozen-lockfile
 cd -
 
 nvim +CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css +qall

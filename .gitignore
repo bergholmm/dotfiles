@@ -6,4 +6,5 @@ old
 *secret*
 config/fish/conf.d/pure.fish
 config/fish/functions/*
+config/fish/fish_variables
 config/direnv/allow

@@ -14,8 +14,6 @@ echo "Installing packages"
 brew install nvm node yarn ripgrep fzf ranger python3 python neovim direnv
 brew tap homebrew/cask-versions
 brew cask install iterm2-nightly brave-browser google-chrome firefox insomnia slack visual-studio-code spotify docker
-brew tap heroku/brew
-brew install heroku
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 
@@ -35,12 +33,15 @@ cd -
 cd ./config/nvim/bundle/coc.nvim
 yarn install --frozen-lockfile
 cd -
+cd ./config/nvim/bundle/LeaderF
+./install.sh
+cd -
 
 nvim -c 'CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css'
 
-echo "Setting up fish"
-curl -L https://get.oh-my.fish | fish
-echo "run ./install_fish.fish to install fish packages"
-
 # Remove last login when starting new terminal
 touch ~/.hushlogin
+
+echo "Setting up fish"
+echo "run ./install_fish.fish to install fish packages"
+curl -L https://get.oh-my.fish | fish

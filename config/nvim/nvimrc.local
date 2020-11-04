@@ -4,6 +4,9 @@ nnoremap <leader><space> :StripWhitespace<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.config/nvim/nvimrc<CR>:filetype detect<CR>:exe ":echo 'nvimrc reloaded'"<CR>
 
+" Minimap
+" let g:minimap_auto_start = 1
+
 " Update name of buffer to filename
 autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
 set title

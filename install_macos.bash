@@ -13,7 +13,7 @@ chsh -s /usr/local/bin/fish
 echo "Installing packages"
 brew install nvm node yarn ripgrep fzf ranger python3 python neovim direnv
 brew tap homebrew/cask-versions
-brew cask install iterm2-nightly brave-browser google-chrome firefox insomnia slack visual-studio-code spotify docker
+brew cask install iterm2-nightly firefox-developer-edition insomnia slack visual-studio-code spotify spotify-tui
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 

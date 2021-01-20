@@ -13,9 +13,9 @@ chsh -s /usr/local/bin/fish
 echo "Installing packages"
 brew install nvm node yarn ripgrep fzf ranger python3 python neovim direnv
 brew tap homebrew/cask-versions
-brew cask install iterm2-nightly firefox-developer-edition insomnia slack visual-studio-code spotify spotify-tui
+brew install --cask iterm2-nightly firefox-developer-edition insomnia slack visual-studio-code
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 echo "Linking files"
 fish ./linkfiles.fish

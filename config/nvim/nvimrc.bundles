@@ -41,4 +41,5 @@ Bundle 'christoomey/vim-sort-motion'
 
 " Other
 Plugin 'metakirby5/codi.vim'
-Plugin 'wfxr/minimap.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'

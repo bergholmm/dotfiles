@@ -29,6 +29,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 " Syntax highlighting and auto-complete
 Plugin 'neoclide/coc.nvim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'smaniyedath/c3vim'
 
 " Text editing
 Bundle 'tpope/vim-surround'

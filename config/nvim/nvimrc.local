@@ -86,6 +86,8 @@ noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
 noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
 noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 noremap <leader>fr :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
+noremap go :<C-U>Leaderf! rg --recall<CR>
 
 " Coc settings
 

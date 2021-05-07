@@ -18,6 +18,7 @@ Plugin 'airblade/vim-rooter'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'christoomey/vim-system-copy'
+Plugin 'dyng/ctrlsf.vim'
 
 " Appearance
 Plugin 'junegunn/goyo.vim'
@@ -38,6 +39,7 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'godlygeek/tabular'
 Bundle 'christoomey/vim-sort-motion'
+Bundle 'matze/vim-move'
 
 " Other
 Plugin 'metakirby5/codi.vim'

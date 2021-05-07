@@ -21,10 +21,10 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
 " Easier split switches
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <ALT-J> <C-W><C-J>
+" nnoremap <ALT-K> <C-W><C-K>
+" nnoremap <ALT-L> <C-W><C-L>
+" nnoremap <ALT-H> <C-W><C-H>
 
 " Easier copy/paste
 vnoremap p "_dP
@@ -184,3 +184,16 @@ nmap <leader>=  <Plug>(coc-format-selected)
 
 " Notes save location
 let g:notes_directories = ['~/Documents/Notes']
+
+" vim-move bind
+let g:move_key_modifier = 'C'
+
+" ctrlsf
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>

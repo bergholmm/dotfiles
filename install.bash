@@ -1,4 +1,4 @@
-if test ! "$(uname)" = "Darwin"
+if test "$(uname)" = "Darwin"
 then
   ./macos/install.bash
 else

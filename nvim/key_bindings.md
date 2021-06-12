@@ -3,6 +3,8 @@
 ```
 <leader> : ,
 
+:noa w : save without formatting
+
 <leader>y : system copy
 <leader>yy : system copy line
 <leader>p : sytem paste
@@ -10,21 +12,20 @@
 gu : make lowercase
 gU : make uppercase
 
-vsp : split vertical
-sp  : split horisontal
+:vsp : split vertical
+:sp  : split horisontal
 
-<C-h> : split nav (left)
-<C-j> : split nav (down)
-<C-k> : split nav (up)
-<C-l> : split nav (right)
-
-<C-d> : down half page
-<C-u> : up half page
-
-<C-f> : down a page
-<C-b> : up a page
+<A-h> : split nav (left)
+<A-j> : split nav (down)
+<A-k> : split nav (up)
+<A-l> : split nav (right)
 
 <C-n> : multiple cursors
+
+<C-h> : move line (left)
+<C-j> : move line (down)
+<C-k> : move line (up)
+<C-l> : move line (right)
 
 ds : remove surroundings
 csiw : change surrindings in word

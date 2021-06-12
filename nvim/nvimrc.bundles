@@ -21,16 +21,13 @@ Bundle 'christoomey/vim-system-copy'
 Plugin 'dyng/ctrlsf.vim'
 
 " Appearance
-Plugin 'junegunn/goyo.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'joshdick/onedark.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " Syntax highlighting and auto-complete
 Plugin 'neoclide/coc.nvim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'smaniyedath/c3vim'
 
 " Text editing
 Bundle 'tpope/vim-surround'
@@ -43,5 +40,3 @@ Bundle 'matze/vim-move'
 
 " Other
 Plugin 'metakirby5/codi.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'

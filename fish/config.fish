@@ -11,16 +11,6 @@ set -g fish_key_bindings vi_key_bindings
 alias vim nvim
 set -gx EDITOR nvim
 
-# Android path
-set -gx ANDROID_HOME $HOME/Library/Android/sdk
-set -gx PATH $PATH:$ANDROID_HOME/emulator
-set -gx PATH $PATH:$ANDROID_HOME/tools
-set -gx PATH $PATH:$ANDROID_HOME/tools/bin
-set -gx PATH $PATH:$ANDROID_HOME/platform-tools
-
-# Setpu direnv
-eval (direnv hook fish)
-
 # Aliases for encryption
 alias encrypt 'openssl enc -aes-256-cbc -a'
 alias decrypt 'openssl enc -aes-256-cbc -a -d'
@@ -43,3 +33,10 @@ function r
         cd $rangerpwd
     end
 end
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
+# Setup direnv
+direnv hook fish | source

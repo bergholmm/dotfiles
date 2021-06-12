@@ -1,10 +1,11 @@
 .DS_Store
-config/nvim/bundle/*
+nvim/bundle/*
 fishd.*
 fish_history*
 old
 *secret*
-config/fish/conf.d/pure.fish
-config/fish/functions/*
-config/fish/fish_variables
-config/direnv/allow
+fish/completions/*
+fish/conf.d/*
+fish/functions/*
+fish/fish_variables
+direnv/allow

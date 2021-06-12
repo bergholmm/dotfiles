@@ -21,12 +21,12 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
 " Easier split switches
-" nnoremap <ALT-J> <C-W><C-J>
-" nnoremap <ALT-K> <C-W><C-K>
-" nnoremap <ALT-L> <C-W><C-L>
-" nnoremap <ALT-H> <C-W><C-H>
+nnoremap ∆ <C-W><C-J>
+nnoremap ˚ <C-W><C-K>
+nnoremap ¬ <C-W><C-L>
+nnoremap ˙ <C-W><C-H>
 
-" Easier copy/paste
+" copy/paste
 vnoremap p "_dP
 nmap <leader>y <Plug>SystemCopy
 xmap <leader>y <Plug>SystemCopy
@@ -53,13 +53,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 set laststatus=2
-
-" Tabular
-let g:haskell_tabular = 1
-vmap a= :Tabularize /=<CR>
-vmap a; :Tabularize /::<CR>
-vmap a- :Tabularize /-><CR>
-vmap a* :Tabularize /<\*><CR>
 
 " Set root dir for non-projects, Rooter plugin
 let g:rooter_change_directory_for_non_project_files = 'current'
@@ -181,9 +174,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Format selected region
 vmap <leader>=  <Plug>(coc-format-selected)
 nmap <leader>=  <Plug>(coc-format-selected)
-
-" Notes save location
-let g:notes_directories = ['~/Documents/Notes']
 
 " vim-move bind
 let g:move_key_modifier = 'C'

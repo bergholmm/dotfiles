@@ -3,21 +3,16 @@ Dotfiles for various programs.
 
 ## Installation
 
-macOS
 ```bash
 git clone https://github.com/bergholmm/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./macos/install.bash
+./install.bash
 ./fish/install_packages.fish
-```
-
-linux
-```bash
 ```
 
 ## Linking files
 
-Only link dotfiles (fish shell required):
+Only link dotfiles (fish shell required)
 ```bash
 cd ~/dotfiles
 ./linkfiles.fish
@@ -25,8 +20,7 @@ cd ~/dotfiles
 
 ## Neovim
 
-Only install nvim plugins:
-
+Only install nvim plugins
 ```bash
 git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/nvim/bundle/Vundle.vim
 pip3 install --user pynvim

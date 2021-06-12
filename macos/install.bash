@@ -41,6 +41,9 @@ nvim -c 'CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css'
 # Remove last login when starting new terminal
 touch ~/.hushlogin
 
+# Set defaults
+./set-defaults.sh
+
 echo "Setting up fish"
 echo "run ./install_packages.fish to install fish packages"
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher

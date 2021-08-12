@@ -7,17 +7,10 @@
     "javascriptreact",
     "typescriptreact",
     "css",
-    "Markdown",
-    "json",
-    "typescript.tsx"
+    "markdown",
+    "json"
   ],
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact",
-    "typescript.tsx"
-  ],
+  "eslint.packageManager": "yarn",
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•"

@@ -57,6 +57,9 @@ set laststatus=2
 " Set root dir for non-projects, Rooter plugin
 let g:rooter_change_directory_for_non_project_files = 'current'
 
+" Set Rooter pattern
+let g:rooter_patterns = ['.git']
+
 " Fix problem with auto-close and esc
 let g:AutoClosePumvisible = {"ENTER": "", "ESC": ""}
 

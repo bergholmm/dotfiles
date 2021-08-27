@@ -37,11 +37,8 @@ tnoremap <Esc> <C-\><C-n>
 " Close buffer
 nmap <leader>c :bd<CR>
 
-" EasyMotion
-let g:EasyMotion_do_mapping = 0
-nmap <leader>j <Plug>(easymotion-overwin-line)
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+" Quick scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Enable gitgutter
 let g:gitgutter_enabled = 1

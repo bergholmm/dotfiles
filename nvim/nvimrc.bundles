@@ -16,9 +16,10 @@ Plugin 'Yggdroot/LeaderF'
 Bundle 'octref/RootIgnore'
 Plugin 'airblade/vim-rooter'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'easymotion/vim-easymotion'
 Bundle 'christoomey/vim-system-copy'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'justinmk/vim-sneak'
+Plugin 'unblevable/quick-scope'
 
 " Appearance
 Plugin 'vim-airline/vim-airline'

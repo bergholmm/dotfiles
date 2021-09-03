@@ -42,6 +42,7 @@ nvm use default --silent
 
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.local/bin $PATH
+set PATH $HOME/go/bin $PATH
 
 # Setup direnv
 direnv hook fish | source

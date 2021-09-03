@@ -34,6 +34,15 @@ nmap <leader>p <Plug>SystemPaste
 nmap <leader>yy <Plug>SystemCopyLine
 tnoremap <Esc> <C-\><C-n>
 
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    augroup END
+end
+
 " Close buffer
 nmap <leader>c :bd<CR>
 

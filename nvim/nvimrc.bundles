@@ -1,25 +1,24 @@
 " Base bundles
-Bundle 'gmarik/vundle'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'tpope/vim-repeat'
+Plugin 'gmarik/vundle'
+Plugin 'metakirby5/codi.vim'
 
 " File browser
-Plugin 'francoiscabrol/ranger.vim'
 Plugin 'rbgrouleff/bclose.vim'
+Plugin 'preservim/nerdtree'
 
 " Git
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " Search and utilities
+Plugin 'tpope/vim-repeat'
 Plugin 'Yggdroot/LeaderF'
-Bundle 'octref/RootIgnore'
+Plugin 'octref/RootIgnore'
 Plugin 'airblade/vim-rooter'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'christoomey/vim-system-copy'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'justinmk/vim-sneak'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'christoomey/vim-system-copy'
 Plugin 'unblevable/quick-scope'
+Plugin 'easymotion/vim-easymotion'
 
 " Appearance
 Plugin 'vim-airline/vim-airline'
@@ -31,13 +30,16 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'sheerun/vim-polyglot'
 
 " Text editing
-Bundle 'tpope/vim-surround'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'godlygeek/tabular'
-Bundle 'christoomey/vim-sort-motion'
-Bundle 'matze/vim-move'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'godlygeek/tabular'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'matze/vim-move'
+Plugin 'rstacruz/vim-hyperstyle'
 
-" Other
-Plugin 'metakirby5/codi.vim'
+" NERDTree Plugins
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'PhilRunninger/nerdtree-visual-selection'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'

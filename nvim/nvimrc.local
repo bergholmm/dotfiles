@@ -21,10 +21,10 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 
 " Easier split switches
-nnoremap ∆ <C-W><C-J>
-nnoremap ˚ <C-W><C-K>
-nnoremap ¬ <C-W><C-L>
-nnoremap ˙ <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " copy/paste
 vnoremap p "_dP
@@ -58,6 +58,7 @@ let g:airline_enable_hunks = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
 set laststatus=2
 
 " Set root dir for non-projects, Rooter plugin
@@ -185,7 +186,7 @@ vmap <leader>=  <Plug>(coc-format-selected)
 nmap <leader>=  <Plug>(coc-format-selected)
 
 " vim-move bind
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'A'
 
 " ctrlsf
 nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -196,3 +197,19 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+" Nerdtree
+" nnoremap <leader>d :NERDTreeFocus<CR>
+nnoremap <leader>t :NERDTree<CR>
+nnoremap <leader>d :NERDTreeFind<CR>
+
+let NERDTreeMapActivateNode='l'
+
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+
+nmap s <Plug>(easymotion-w)
+nmap S <Plug>(easymotion-b)

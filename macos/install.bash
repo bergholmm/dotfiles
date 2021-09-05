@@ -36,7 +36,7 @@ yarn install --frozen-lockfile
 cd ~/dotfiles/nvim/bundle/LeaderF
 ./install.sh
 
-nvim -c 'CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css'
+nvim -c 'CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-pairs'
 
 # Remove last login when starting new terminal
 touch ~/.hushlogin

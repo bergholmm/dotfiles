@@ -78,6 +78,7 @@ set noswapfile
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h16
 
 " More natural splits
 set splitbelow          " Horizontal split below current.

@@ -1,7 +1,6 @@
 " Setup leader, etc.
 let mapleader = ','
 nnoremap <leader><space> :StripWhitespace<CR>
-nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.config/nvim/nvimrc<CR>:filetype detect<CR>:exe ":echo 'nvimrc reloaded'"<CR>
 
 " Update name of buffer to filename
@@ -119,15 +118,12 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gb <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>

@@ -196,7 +196,7 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Nerdtree
 " nnoremap <leader>d :NERDTreeFocus<CR>
-nnoremap <leader>t :NERDTree<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>d :NERDTreeFind<CR>
 
 let NERDTreeMapActivateNode='l'

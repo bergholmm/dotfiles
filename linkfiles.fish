@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 set files direnv fish nvim ranger
-set dir ~/dotfiles
-set olddir ~/dotfiles/old
+set dir $PWD
+set olddir $PWD/old
 
 rm -rf $olddir
 mkdir -p $olddir

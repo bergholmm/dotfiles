@@ -1,5 +1,9 @@
 local hooks = require "core.hooks"
 
+hooks.add("setup_mappings", function(map)
+  map("n", "<leader><space>", ":StripWhitespace <CR>", opt)
+end)
+
 hooks.add("install_plugins", function(use)
    use {
       "ntpeters/vim-better-whitespace",

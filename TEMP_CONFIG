@@ -1,0 +1,40 @@
+" Coc settings
+" Bind :Prettier to cocs prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Format selected region
+vmap <leader>=  <Plug>(coc-format-selected)
+nmap <leader>=  <Plug>(coc-format-selected)
+
+
+
+
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-w)
+nmap S <Plug>(easymotion-b)
+
+
+nnoremap <leader><space> :StripWhitespace<CR>
+
+
+//////////////////////////////////
+
+Config to maybe add?
+
+    Spelling for yaml/md
+    In case you forgot sudo
+
+
+?? Plugin 'metakirby5/codi.vim'
+
+? Plugin 'terryma/vim-multiple-cursors'
+? Plugin 'easymotion/vim-easymotion'
+
+? Plugin 'godlygeek/tabular'
+? Plugin 'christoomey/vim-sort-motion'

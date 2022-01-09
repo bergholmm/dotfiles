@@ -2,9 +2,6 @@
 " Bind :Prettier to cocs prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
 " Format selected region
 vmap <leader>=  <Plug>(coc-format-selected)
 nmap <leader>=  <Plug>(coc-format-selected)
@@ -13,19 +10,18 @@ nmap <leader>=  <Plug>(coc-format-selected)
 
 
 
-" EasyMotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-w)
-nmap S <Plug>(easymotion-b)
-
-
-nnoremap <leader><space> :StripWhitespace<CR>
-
 
 //////////////////////////////////
 
-Config to maybe add?
+* Pickup:
+  * Fix eslint and prettier
+  * Check if all LSP setup is done
+  * Fix format bind to LSP
 
-    Spelling for yaml/md
-    In case you forgot sudo
+TODO:
+* Bind "l" to expand/open in tree
+* Prettier format bind
+* Format selected text
+* In case you forgot sudo
+* Setup LSP, autocomplete, etc
+

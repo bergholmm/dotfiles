@@ -1,25 +1,21 @@
--- WIP
-
--- TODO:
--- Port all vim configs
--- Ports plugin config and keybinds
--- Install custom plugins
--- Setup LSP, autocomplete, etc
-
 local M = {}
+local indent = 2
 
 -- vim options override
+vim.opt.shell = "/bin/bash" -- fish is making plugins slow somehow...
 vim.opt.scrolloff = 3
-vim.opt.softtabstop = 2
+vim.opt.tabstop = indent
+vim.opt.softtabstop = indent
+vim.opt.shiftwidth = indent
 vim.opt.swapfile = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.list = true
 vim.opt.listchars = {tab = '▸ ', trail = '▫'}
+vim.opt.spelllang = "en"
+vim.api.nvim_exec([[ autocmd FileType markdown setlocal spell ]], false)
+vim.api.nvim_exec([[ autocmd FileType gitcommit setlocal spell ]], false)
 
--- autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
--- autocmd BufRead,BufNewFile *.md set filetype=markdown
--- autocmd BufRead,BufNewFile *.md set spell
 --
 -- vim.api_nvim_set_keymap('c', 'w!!', "<esc>:lua require'utils'.sudo_write()<CR>", { silent = true }) " cnoremap w!! %!sudo tee > /dev/null %
 --
@@ -35,7 +31,12 @@ M.options = {
 M.plugins = {
   status = {
     dashboard = true,
-  }
+  },
+  options = {
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig",
+    },
+  },
 }
 
 -- nvchad mappings override

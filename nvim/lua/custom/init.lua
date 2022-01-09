@@ -2,25 +2,31 @@ local hooks = require "core.hooks"
 
 hooks.add("setup_mappings", function(map)
   map("n", "<leader><space>", ":StripWhitespace <CR>", opt)
+  map("n", "s", ":HopWord <CR>", opt)
+  map("n", "<leader>z", ":set spell!<CR>", opt)
 end)
 
 hooks.add("install_plugins", function(use)
-   use {
+  use {
       "ntpeters/vim-better-whitespace",
       event = "BufRead",
       opt = true,
    }
 
-   use {
+  use {
      "mg979/vim-visual-multi",
      event = "BufRead",
      opt = true,
    }
 
   use {
-    "easymotion/vim-easymotion",
+    'phaazon/hop.nvim',
     event = "BufRead",
     opt = true,
+    branch = 'v1',
+    config = function()
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
   }
 
   use {
@@ -41,4 +47,15 @@ hooks.add("install_plugins", function(use)
     opt = true,
   }
 
+  use { "williamboman/nvim-lsp-installer" }
+
+  use {
+     "jose-elias-alvarez/null-ls.nvim",
+     after = "nvim-lspconfig",
+     config = function()
+        require("custom.plugins.null-ls").setup()
+     end,
+  }
+
 end)
+

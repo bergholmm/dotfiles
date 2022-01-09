@@ -1,25 +1,40 @@
 local hooks = require "core.hooks"
 
--- Install custom plugins
--- local customPlugins = require "core.customPlugins"
---
-customPlugins.add(function(use)
+hooks.add("install_plugins", function(use)
    use {
       "ntpeters/vim-better-whitespace",
       event = "BufRead",
       opt = true,
    }
-end)
 
--- hooks.add("install_plugins", function(use)
---    -- use {
---    --    "ntpeters/vim-better-whitespace",
---    --    event = "BufRead",
---    --    opt = true,
---    -- },
---    use {
---      "mg979/vim-visual-multi",
---      event = "BufRead",
---      opt = true,
---    },
--- end)
+   use {
+     "mg979/vim-visual-multi",
+     event = "BufRead",
+     opt = true,
+   }
+
+  use {
+    "easymotion/vim-easymotion",
+    event = "BufRead",
+    opt = true,
+  }
+
+  use {
+    "christoomey/vim-sort-motion",
+    event = "BufRead",
+    opt = true,
+  }
+
+  use {
+    "godlygeek/tabular",
+    event = "BufRead",
+    opt = true,
+  }
+
+  use {
+    "metakirby5/codi.vim",
+    event = "BufRead",
+    opt = true,
+  }
+
+end)

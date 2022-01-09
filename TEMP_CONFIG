@@ -29,12 +29,3 @@ Config to maybe add?
 
     Spelling for yaml/md
     In case you forgot sudo
-
-
-?? Plugin 'metakirby5/codi.vim'
-
-? Plugin 'terryma/vim-multiple-cursors'
-? Plugin 'easymotion/vim-easymotion'
-
-? Plugin 'godlygeek/tabular'
-? Plugin 'christoomey/vim-sort-motion'

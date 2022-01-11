@@ -6,7 +6,9 @@ echo "Installing Brew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing basic packages"
-brew install fish ripgrep fzf ranger neovim direnv mas python python3 rustup
+brew install fish ripgrep fzf ranger neovim direnv mas python python3 rustup graphviz
+
+# add lldb to linux install
 
 echo "Installing basic apps"
 brew tap homebrew/cask-versions

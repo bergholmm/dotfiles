@@ -4,6 +4,8 @@ hooks.add("setup_mappings", function(map)
   map("n", "<leader><space>", ":StripWhitespace <CR>", opt)
   map("n", "s", ":HopWord <CR>", opt)
   map("n", "<leader>z", ":set spell!<CR>", opt)
+  map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
+  map("v", "<leader>fr", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
 end)
 
 hooks.add("install_plugins", function(use)
@@ -56,6 +58,15 @@ hooks.add("install_plugins", function(use)
         require("custom.plugins.null-ls").setup()
      end,
   }
+
+  use {
+    "simrat39/rust-tools.nvim",
+     after = "nvim-lspconfig",
+  }
+
+  use { "mfussenegger/nvim-dap" }
+
+  use { "lambdalisue/suda.vim" }
 
 end)
 

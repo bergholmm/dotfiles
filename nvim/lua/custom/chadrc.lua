@@ -37,6 +37,9 @@ M.plugins = {
       setup_lspconf = "custom.plugins.lspconfig",
     },
   },
+  default_plugin_config_replace = {
+    treesitter = "custom.treesitter"
+  },
 }
 
 -- nvchad mappings override

@@ -1,14 +1,15 @@
-local hooks = require "core.hooks"
+local map = require("core.utils").map
+local customPlugins = require "core.customPlugins"
 
-hooks.add("setup_mappings", function(map)
-  map("n", "<leader><space>", ":StripWhitespace <CR>", opt)
-  map("n", "s", ":HopWord <CR>", opt)
-  map("n", "<leader>z", ":set spell!<CR>", opt)
-  map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-  map("v", "<leader>fr", "<cmd>lua vim.lsp.buf.formatting()<CR>", opt)
-end)
+-- Custom mappings
+map("n", "<leader><space>", ":StripWhitespace <CR>")
+map("n", "s", ":HopWord <CR>")
+map("n", "<leader>z", ":set spell!<CR>")
+map("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+map("v", "<leader>fr", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
-hooks.add("install_plugins", function(use)
+-- Custom plugins
+customPlugins.add(function(use)
   use {
       "ntpeters/vim-better-whitespace",
       event = "BufRead",

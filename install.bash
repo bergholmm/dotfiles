@@ -10,7 +10,8 @@ fish $PWD/linkfiles.fish
 
 echo "Install Nvchad and custom Neovim setup"
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-ln $PWD/nvim/lua/custom ~/.config/nvim/lua/custom
+ln -sf $PWD/nvim/lua/custom ~/.config/nvim/lua/custom
+nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 echo "Installing Rust"
 rustup-init

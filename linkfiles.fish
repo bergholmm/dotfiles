@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set files direnv fish nvim ranger
+set files direnv fish ranger
 set dir $PWD
 set olddir $PWD/old
 

@@ -4,7 +4,6 @@ local indent = 2
 -- vim options override
 vim.opt.shell = "/bin/bash" -- fish is making plugins slow somehow...
 vim.opt.scrolloff = 3
-vim.opt.tabstop = indent
 vim.opt.softtabstop = indent
 vim.opt.shiftwidth = indent
 vim.opt.swapfile = false
@@ -16,16 +15,12 @@ vim.opt.spelllang = "en"
 vim.api.nvim_exec([[ autocmd FileType markdown setlocal spell ]], false)
 vim.api.nvim_exec([[ autocmd FileType gitcommit setlocal spell ]], false)
 
---
--- vim.api_nvim_set_keymap('c', 'w!!', "<esc>:lua require'utils'.sudo_write()<CR>", { silent = true }) " cnoremap w!! %!sudo tee > /dev/null %
---
-
 -- nvchad options override
 M.options = {
   mapleader = ",",
   relativenumber = true,
+  tabstop = indent,
 }
-
 
 -- nvchad plugins override
 M.plugins = {
@@ -64,6 +59,10 @@ M.mappings.plugins = {
    --    session_load = "<leader>l",
    --    session_save = "<leader>s",
    -- },
+
+   comment = {
+      toggle = "gcc",
+   },
 
    lspconfig = {
       declaration = "gD",

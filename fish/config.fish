@@ -74,3 +74,7 @@ direnv hook fish | source
 # set fish_pager_color_progress --background=63F2F1 1E1C31
 # set fish_pager_color_description $fish_color_command
 # set fish_pager_color_selected_description --underline $fish_color_command
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+

@@ -4,7 +4,7 @@ local b = null_ls.builtins
 local sources = {
   b.formatting.prettier,
   b.diagnostics.eslint,
-  b.completion.spell,
+  -- b.completion.spell,
 
   -- Lua
   b.formatting.stylua,

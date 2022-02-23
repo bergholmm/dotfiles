@@ -7,7 +7,6 @@ echo "Installing Brew"
 
 echo "Installing basic packages"
 brew install fish ripgrep fzf ranger neovim direnv mas python python3 rustup graphviz unzip
-# add lldb to linux install
 
 echo "Installing basic apps"
 brew tap homebrew/cask-versions
@@ -19,6 +18,9 @@ brew install --cask font-caskaydia-cove-nerd-font
 
 echo "Installing App Store apps"
 mas install 441258766 # Magnet
+
+echo "Installing Rust"
+rustup-init
 
 echo "Setting up fish"
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells

@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set files direnv fish ranger
+set files direnv fish
 set dir $PWD
 set olddir $PWD/old
 

@@ -1,10 +1,7 @@
-local present, ts_config = pcall(require, "nvim-treesitter.configs")
+local M = {}
 
-if not present then
-   return
-end
-
-ts_config.setup {
+-- overriding default plugin configs!
+M.treesitter = {
    ensure_installed = {
       "lua",
       "vim",
@@ -24,8 +21,12 @@ ts_config.setup {
       "typescript",
       "yaml",
    },
-   highlight = {
+}
+
+M.nvimtree = {
+   git = {
       enable = true,
-      use_languagetree = true,
    },
 }
+
+return M

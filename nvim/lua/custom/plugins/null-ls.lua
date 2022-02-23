@@ -1,10 +1,22 @@
-local null_ls = require "null-ls"
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+
+if not null_ls_status_ok then
+  return
+end
+
 local b = null_ls.builtins
 
 local sources = {
+  -- JS
   b.formatting.prettier,
   b.diagnostics.eslint,
-  -- b.completion.spell,
+
+  -- GO
+  b.formatting.gofumpt,
+
+  -- Spelling
+  b.completion.spell,
+  b.diagnostics.write_good,
 
   -- Lua
   b.formatting.stylua,
@@ -19,7 +31,7 @@ local M = {}
 
 M.setup = function()
   null_ls.setup {
-     debug = true,
+     debug = false,
      sources = sources,
 
      -- format on save

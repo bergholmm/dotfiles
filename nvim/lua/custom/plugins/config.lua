@@ -1,5 +1,7 @@
 local M = {}
 
+require('telescope').load_extension('projects')
+
 -- overriding default plugin configs!
 M.treesitter = {
    ensure_installed = {

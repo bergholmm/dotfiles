@@ -18,6 +18,7 @@ vim.opt.listchars = {tab = '▸ ', trail = '▫'}
 vim.g.rooter_pattern = {'.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt'}
 vim.g.outermost_root = true
 
+
 M.options = {
    -- custom = {}
    -- general nvim/vim options , check :h optionname to know more about an option

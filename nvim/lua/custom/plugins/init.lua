@@ -1,5 +1,5 @@
 return {
-  { "williamboman/nvim-lsp-installer" }, 
+  { "williamboman/nvim-lsp-installer" },
   {
     "ntpeters/vim-better-whitespace",
     event = "BufRead",
@@ -36,4 +36,5 @@ return {
       require("custom.plugins.null-ls").setup()
     end
   },
+  { "ygm2/rooter.nvim" },
 }

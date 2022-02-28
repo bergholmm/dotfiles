@@ -14,6 +14,10 @@ vim.opt.splitright = true
 vim.opt.list = true
 vim.opt.listchars = {tab = '▸ ', trail = '▫'}
 
+-- Rooter plugin config
+vim.g.rooter_pattern = {'.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt'}
+vim.g.outermost_root = true
+
 M.options = {
    -- custom = {}
    -- general nvim/vim options , check :h optionname to know more about an option
@@ -53,11 +57,12 @@ M.options = {
    },
 }
 
+
 ---- UI -----
 M.ui = {
    hl_override = "", -- path of your file that contains highlights
    italic_comments = false,
-   theme = "onedark", -- default theme
+   theme = "chadracula", -- default theme
    -- Change terminal bg to nvim theme's bg color so it'll match well
    -- For Ex : if you have onedark set in nvchad, set onedark's bg color on your terminal
    transparency = false,

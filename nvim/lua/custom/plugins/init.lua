@@ -1,4 +1,5 @@
 return {
+  { "simrat39/rust-tools.nvim" },
   { "williamboman/nvim-lsp-installer" },
   {
     "ntpeters/vim-better-whitespace",

@@ -15,8 +15,8 @@ local sources = {
   b.formatting.gofumpt,
 
   -- Spelling
-  b.completion.spell,
-  b.diagnostics.write_good,
+  -- b.completion.spell,
+  -- b.diagnostics.write_good,
 
   -- Lua
   b.formatting.stylua,

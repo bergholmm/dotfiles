@@ -57,6 +57,7 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "nathom/filetype.nvim"
+  use "Mofiqul/dracula.nvim"
   use {
     "max397574/better-escape.nvim",
     config = function()

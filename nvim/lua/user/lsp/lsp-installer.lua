@@ -19,5 +19,18 @@ lsp_installer.on_server_ready(function(server)
    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
+  if server.name == "rust_analyzer" then
+    -- Initialize the LSP via rust-tools instead
+    require("rust-tools").setup {
+      server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+    }
+    server:attach_buffers()
+    -- Only if standalone support is needed
+    require("rust-tools").start_standalone_if_required()
+    require('rust-tools.inlay_hints').set_inlay_hints()
+    require('rust-tools.runnables').runnables()
+    return
+  end
+
   server:setup(opts)
 end)

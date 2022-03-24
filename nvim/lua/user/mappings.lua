@@ -58,10 +58,5 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Strip whitespace
 keymap("n", "<leader><space>", ":StripWhitespace <CR>", opts)
 
--- Format buffer
-keymap("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
--- Format selection
-keymap("v", "<leader>fr", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
 keymap("n", "<leader>z", ":set spell!<CR>", opts)
+keymap("n", "s", ":HopWord <CR>", opts)

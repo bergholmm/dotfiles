@@ -5,10 +5,9 @@
 # firefox-developer-edition insomnia-bin slack-desktop visual-studio-code-bin
 # nerd-fonts
 
-# Install nvchad
+# Install nvim config
 # git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
-# git clone https://github.com/NvChad/NvChad nvim --depth 1 --> Move to ~/appdata/local/nvim
-# Move custom config from dotfiles
+# Move custom config from dotfiles --> Move to ~/appdata/local/nvim
 
 # Install rust: https://www.rust-lang.org/tools/install
 # Install prompt: cargo install starship --locked

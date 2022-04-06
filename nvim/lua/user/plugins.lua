@@ -105,6 +105,7 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
   use "andymass/vim-matchup"
   use "simrat39/rust-tools.nvim"
+  use "lukas-reineke/lsp-format.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

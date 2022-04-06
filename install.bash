@@ -18,13 +18,8 @@ npm i -g yarn eslint prettier neovim
 echo "Installing pip packages"
 pip install pynvim
 
-echo "Install Nvchad and custom Neovim setup"
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-ln -sf $PWD/nvim/lua/custom ~/.config/nvim/lua/custom
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
-
 echo "Installing fisher and fish plugins"
 fish curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fish fisher install edc/bass jhillyerd/plugin-git
+fish fisher install edc/bass jhillyerd/plugin-git dracula/fish
 
 exit 0

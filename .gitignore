@@ -9,3 +9,4 @@ fish/conf.d/*
 fish/functions/*
 fish/fish_variables
 direnv/allow
+nvim/plugin/

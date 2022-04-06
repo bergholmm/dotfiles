@@ -2,35 +2,24 @@
 
 set -e
 
-echo "Updating system"
+echo "Update system"
 yay
 
-echo "Installing packages"
-yay -S fish yarn ripgrep fzf neovim python-neovimc direnv-bin firefox-developer-edition insomnia-bin slack-desktop visual-studio-code-bin ttf-fira-code
+echo "Install packages"
+yay -S fish xsel ripgrep fzf direnv firefox-developer-edition insomnia-bin slack-desktop visual-studio-code-bin graphviz lldb nerd-fonts-complete python-pip tmux archcraft-i3wm
 
-echo "Setting fish as default"
-chsh -s `which fish`
+echo "Install rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-fish ~/dotfiles/linkfiles.fish
+echo "Install Starship"
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
-echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+echo "Install i3 pip package"
+pip3 install i3ipc
 
-echo "Setting up neovim"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/nvim/bundle/Vundle.vim
+rm -rf ~/.config/nvim
 
-nvim +PluginInstall +qall
-nvim +UpdateRemotePlugins +qall
+# Add fish as startup shell: see arch wiki for fish shell
 
-cd ~/dotfiles/nvim/bundle/vimproc.vim
-make
-cd ~/dotfiles/nvim/bundle/coc.nvim
-yarn install --frozen-lockfile
-cd ~/dotfiles/nvim/bundle/LeaderF
-./install.sh
-
-nvim -c 'CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-pairs'
-
-echo "Setting up fish"
-echo "run ./install_packages.fish to install fish packages"
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# Cooling:
+# https://github.com/liquidctl/liquidctl

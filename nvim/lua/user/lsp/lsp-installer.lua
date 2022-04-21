@@ -32,5 +32,15 @@ lsp_installer.on_server_ready(function(server)
     return
   end
 
+  if server.name == "eslint" then
+    opts.on_attach = function (client, bufnr)
+      client.resolved_capabilities.document_formatting = true
+      require("user.lsp.handlers").on_attach(client, bufnr)
+    end
+    opts.settings = {
+        format = { enable = true },
+    }
+  end
+
   server:setup(opts)
 end)

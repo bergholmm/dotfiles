@@ -108,4 +108,9 @@ nvim_tree.setup {
     folder_arrows = 1,
     tree_width = 30,
   },
+  actions = {
+    open_file = {
+      resize_window = true,
+    }
+  }
 }

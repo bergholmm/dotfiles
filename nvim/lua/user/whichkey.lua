@@ -84,6 +84,7 @@ local mappings = {
   ["d"] = { "<cmd>NvimTreeFindFile<cr>", "Find File Explorer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "Clear Search Highlight" },
+  ["v"] = { "<cmd>vsplit<CR>", "Open vertical split" },
 
   f = {
     name = "Find",

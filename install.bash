@@ -22,4 +22,7 @@ echo "Installing fisher and fish plugins"
 fish curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fish fisher install edc/bass jhillyerd/plugin-git dracula/fish
 
+echo "Installing zoxide"
+curl -sS https://webinstall.dev/zoxide | bash
+
 exit 0

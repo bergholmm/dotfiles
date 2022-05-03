@@ -49,4 +49,6 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 
 set fish_greeting
 
+zoxide init fish | source
+
 starship init fish | source

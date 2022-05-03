@@ -65,6 +65,7 @@ return packer.startup(function(use)
     end,
   }
   use 'romgrk/todoist.nvim'
+  use 'bergholmm/telescope-folder-grep.nvim'
 
   use "mg979/vim-visual-multi"
   use { 'phaazon/hop.nvim',

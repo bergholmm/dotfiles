@@ -46,10 +46,10 @@ return packer.startup(function(use)
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use {"akinsho/toggleterm.nvim", tag = 'v1.*'}
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -83,9 +83,6 @@ return packer.startup(function(use)
     opt = true
   }
   use "ygm2/rooter.nvim"
-
-  -- Colorschemes
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

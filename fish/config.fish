@@ -1,4 +1,3 @@
-# Load vi_mode
 function vi_key_bindings
     fish_vi_key_bindings
     bind -M insert -m default jj force-repaint
@@ -7,13 +6,11 @@ end
 
 set -g fish_key_bindings vi_key_bindings
 
-# Use neovim as editor
-alias vim nvim
 set -gx EDITOR nvim
+set fish_greeting
 
-# Aliases for encryption
-alias encrypt 'openssl enc -aes-256-cbc -a'
-alias decrypt 'openssl enc -aes-256-cbc -a -d'
+set PATH $HOME/.cargo/bin $PATH
+set PATH $HOME/.local/bin $PATH
 
 # Hide vim mode indicator
 function fish_mode_prompt
@@ -38,17 +35,12 @@ function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
 
-set PATH $HOME/.cargo/bin $PATH
-set PATH $HOME/.local/bin $PATH
-
-# Setup direnv
-direnv hook fish | source
-
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 
-set fish_greeting
+alias n nvim
+alias t tmux
 
+direnv hook fish | source
 zoxide init fish | source
-
 starship init fish | source

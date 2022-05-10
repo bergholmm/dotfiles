@@ -14,3 +14,7 @@ for file in $files;
     echo "Creating symlink: ~/config/.$file -> $dir/$file"
     ln -sf $dir/$file ~/.config/$file;
 end
+
+mv ~/.tmux.conf $olddir/;
+echo "Creating symlink: ~/.tmux.conf -> $dir/tmux/.tmux.conf"
+ln -sf $dir/tmux/.tmux.conf ~/.tmux.conf

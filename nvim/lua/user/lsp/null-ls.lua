@@ -9,15 +9,15 @@ local formatting = null_ls.builtins.formatting
 null_ls.setup({
   debug = false,
   sources = {
-    formatting.prettier.with({
-      extra_args = {
-        -- '--no-semi',
-        -- '--single-quote',
-        -- '--jsx-single-quote',
-        -- '--trailing-comma es5',
-        -- '--bracket-same-line',
-      },
-    }),
+    -- formatting.prettier.with({
+    --   extra_args = {
+    -- '--no-semi',
+    -- '--single-quote',
+    -- '--jsx-single-quote',
+    -- '--trailing-comma es5',
+    -- '--bracket-same-line',
+    --   },
+    -- }),
     formatting.black.with({ extra_args = { '--fast' } }),
     formatting.stylua,
     formatting.gofumpt,

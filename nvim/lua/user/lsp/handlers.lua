@@ -93,6 +93,9 @@ M.on_attach = function(client, bufnr)
   if client.name == 'rust_analyzer' then
     require('lsp-format').on_attach(client)
   end
+  if client.name == 'eslint' then
+    require('lsp-format').on_attach(client)
+  end
 
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)

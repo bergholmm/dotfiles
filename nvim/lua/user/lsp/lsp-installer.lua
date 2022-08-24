@@ -8,7 +8,6 @@ local servers = {
   'rust_analyzer',
   'bashls',
   'cssls',
-  'eslint',
   'gopls',
   'html',
   'jsonnet_ls',

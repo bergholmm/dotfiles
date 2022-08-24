@@ -11,9 +11,9 @@ fish $PWD/linkfiles.fish
 echo "Setting fish theme"
 fish_config theme save Nord
 
-echo "Installing NVM, Yarn, Node"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm install node
+# echo "Installing NVM, Yarn, Node"
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# nvm install node
 
 echo "Installing npm packages"
 npm i -g yarn eslint prettier neovim

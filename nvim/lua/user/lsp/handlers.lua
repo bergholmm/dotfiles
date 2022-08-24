@@ -86,14 +86,16 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == 'tsserver' then
     client.server_capabilities.document_formatting = false
+    client.resolved_capabilities.document_formatting = false
+  end
+  if client.name == 'sumneko_lua' then
+    client.server_capabilities.document_formatting = false
+    client.resolved_capabilities.document_formatting = false
   end
   if client.name == 'gopls' then
     require('lsp-format').on_attach(client)
   end
   if client.name == 'rust_analyzer' then
-    require('lsp-format').on_attach(client)
-  end
-  if client.name == 'eslint' then
     require('lsp-format').on_attach(client)
   end
 

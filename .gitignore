@@ -5,7 +5,7 @@ fish_history*
 old
 *secret*
 fish/completions/*
-fish/conf.d/*
+fish/conf.d/git.fish
 fish/functions/*
 fish/fish_variables
 direnv/allow

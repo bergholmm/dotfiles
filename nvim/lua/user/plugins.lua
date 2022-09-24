@@ -44,31 +44,30 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim') -- Useful lua functions used ny lots of plugins
   use('windwp/nvim-autopairs') -- Autopairs, integrates with both cmp and treesitter
   use('numToStr/Comment.nvim') -- Easily comment stuff
-  use('kyazdani42/nvim-web-devicons')
-  use('kyazdani42/nvim-tree.lua')
-  use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' })
-  use({ 'akinsho/toggleterm.nvim', tag = 'v1.*' })
-  use('moll/vim-bbye')
-  use('nvim-lualine/lualine.nvim')
-  use('ahmedkhalf/project.nvim')
-  use('lewis6991/impatient.nvim')
-  use('lukas-reineke/indent-blankline.nvim')
-  use('goolord/alpha-nvim')
+  use('kyazdani42/nvim-web-devicons') --
+  use('kyazdani42/nvim-tree.lua') --
+  use({ 'akinsho/bufferline.nvim', tag = 'v2.*', requires = 'kyazdani42/nvim-web-devicons' }) --
+  use({ 'akinsho/toggleterm.nvim', tag = 'v1.*' }) --
+  use('moll/vim-bbye') -- not needed
+  use('nvim-lualine/lualine.nvim') --
+  use('ahmedkhalf/project.nvim') --
+  use('lewis6991/impatient.nvim') -- X
+  use('lukas-reineke/indent-blankline.nvim') -- X
+  use('goolord/alpha-nvim') --
   use('antoinemadec/FixCursorHold.nvim') -- This is needed to fix lsp doc highlight
-  use('folke/which-key.nvim')
-  use('nathom/filetype.nvim')
-  use('shaunsingh/nord.nvim')
+  use('folke/which-key.nvim') --
+  use('nathom/filetype.nvim') -- X
+  use('shaunsingh/nord.nvim') --
   use({
-    'max397574/better-escape.nvim',
+    'max397574/better-escape.nvim', -- not using
     config = function()
       require('better_escape').setup()
     end,
   })
-  use('romgrk/todoist.nvim')
-  use('bergholmm/telescope-folder-grep.nvim')
+  use('bergholmm/telescope-folder-grep.nvim') -- Check if I can optimize this one
 
-  use('mg979/vim-visual-multi')
-  use({
+  use('mg979/vim-visual-multi') -- X
+  use({ -- X
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
     config = function()
@@ -76,22 +75,22 @@ return packer.startup(function(use)
       require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
     end,
   })
-  use('christoomey/vim-sort-motion')
-  use('godlygeek/tabular')
+  use('christoomey/vim-sort-motion') -- X
+  use('godlygeek/tabular') -- X
   use({
-    'ntpeters/vim-better-whitespace',
+    'ntpeters/vim-better-whitespace', -- X
     event = 'BufRead',
     opt = true,
   })
-  use('ygm2/rooter.nvim')
+  use('ygm2/rooter.nvim') -- X
 
   -- cmp plugins
   use('hrsh7th/nvim-cmp') -- The completion plugin
   use('hrsh7th/cmp-buffer') -- buffer completions
   use('hrsh7th/cmp-path') -- path completions
-  use('hrsh7th/cmp-cmdline') -- cmdline completions
+  use('hrsh7th/cmp-cmdline') -- X
   use('saadparwaiz1/cmp_luasnip') -- snippet completions
-  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/cmp-nvim-lsp') --
 
   -- snippets
   use('L3MON4D3/LuaSnip') --snippet engine
@@ -105,28 +104,39 @@ return packer.startup(function(use)
   }) -- simple to use language server installer
   use('tamago324/nlsp-settings.nvim') -- language server settings defined in json for
   use('jose-elias-alvarez/null-ls.nvim') -- for formatters and linters
-  use('ray-x/lsp_signature.nvim')
-  use('andymass/vim-matchup')
-  use('simrat39/rust-tools.nvim')
-  use('lukas-reineke/lsp-format.nvim')
+  use('ray-x/lsp_signature.nvim') -- X
+  use('andymass/vim-matchup') -- ?
+  use('simrat39/rust-tools.nvim') -- ?
+  use('lukas-reineke/lsp-format.nvim') -- X
 
   -- Telescope
-  use('nvim-telescope/telescope.nvim')
+  use('nvim-telescope/telescope.nvim') --
 
   -- Treesitter
   use({
-    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter', --
     run = ':TSUpdate',
   })
-  use('JoosepAlviste/nvim-ts-context-commentstring')
+  use('nvim-treesitter/nvim-treesitter-textobjects') -- X
+  use('JoosepAlviste/nvim-ts-context-commentstring') --
 
   -- Git
-  use('lewis6991/gitsigns.nvim')
-  use('tpope/vim-fugitive')
+  use('lewis6991/gitsigns.nvim') --
+  use('tpope/vim-fugitive') -- X
   use({
-    'ruifm/gitlinker.nvim',
+    'ruifm/gitlinker.nvim', -- X
     config = function()
       require('gitlinker').setup()
+    end,
+  })
+
+  use({
+    'kylechui/nvim-surround', -- X
+    tag = '*', -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require('nvim-surround').setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end,
   })
 

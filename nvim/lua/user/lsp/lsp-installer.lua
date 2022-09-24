@@ -17,6 +17,7 @@ local servers = {
   'tailwindcss',
   'tsserver',
   'yamlls',
+  -- 'denols',
 }
 
 lsp_installer.setup({

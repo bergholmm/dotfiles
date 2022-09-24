@@ -34,6 +34,7 @@ local options = {
   sidescrolloff = 8,
   ruler = false,
   laststatus = 3,
+  shell = '/bin/zsh', -- Test to see if laggyness goes away
 }
 
 vim.opt.shortmess:append('c')

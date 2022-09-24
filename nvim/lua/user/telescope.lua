@@ -62,6 +62,8 @@ telescope.setup({
         ['M'] = actions.move_to_middle,
         ['L'] = actions.move_to_bottom,
 
+        ['c'] = actions.delete_buffer,
+
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
         ['gg'] = actions.move_to_top,

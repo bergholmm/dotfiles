@@ -84,6 +84,28 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+  local active_clients = vim.lsp.get_active_clients()
+
+  -- if client.name == 'denols' then
+  --   for _, client_ in pairs(active_clients) do
+  --     -- stop tsserver if denols is already active
+  --     if client_.name == 'tsserver' then
+  --       client_.stop()
+  --     end
+  --   end
+  --   client.server_capabilities.document_formatting = false
+  --   client.resolved_capabilities.document_formatting = false
+  -- elseif client.name == 'tsserver' then
+  --   for _, client_ in pairs(active_clients) do
+  --     -- prevent tsserver from starting if denols is already active
+  --     if client_.name == 'denols' then
+  --       client.stop()
+  --     end
+  --   end
+  --   client.server_capabilities.document_formatting = false
+  --   client.resolved_capabilities.document_formatting = false
+  -- end
+
   if client.name == 'tsserver' then
     client.server_capabilities.document_formatting = false
     client.resolved_capabilities.document_formatting = false

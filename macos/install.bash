@@ -17,7 +17,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-caskaydia-cove-nerd-font
 
 echo "Installing App Store apps"
-mas install 441258766 # Magnet
+# mas install 441258766 # Magnet
 
 echo "Setting up fish"
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells

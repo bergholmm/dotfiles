@@ -82,5 +82,3 @@ telescope.setup({
   pickers = {},
   extensions = {},
 })
-
-telescope.load_extension('folder_grep')

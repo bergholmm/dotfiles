@@ -49,9 +49,7 @@ vim.cmd([[set formatoptions-=cro]])
 
 local ok, nord = pcall(require, 'nord')
 if ok then
-  vim.g.nord_contrast = false
   vim.g.nord_borders = true
-  vim.g.nord_italic = false
   nord.set()
 end
 

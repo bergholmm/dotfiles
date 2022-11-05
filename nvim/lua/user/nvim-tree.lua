@@ -1,5 +1,3 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
 local glyphs = {
   default = '',
   symlink = '',
@@ -78,8 +76,7 @@ nvim_tree.setup({
     timeout = 500,
   },
   view = {
-    width = 50,
-    height = 30,
+    width = 35,
     hide_root_folder = false,
     side = 'left',
     mappings = {

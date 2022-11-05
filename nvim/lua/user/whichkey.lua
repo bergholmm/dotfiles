@@ -98,7 +98,8 @@ local mappings = {
       'Find Buffers',
     },
     p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", 'Find Projects' },
-    d = { '<cmd>Telescope folder_grep theme=ivy<cr>', 'Find Text within selected folders' },
+    d = { '<cmd>Telescope dir live_grep<CR>', 'Find Text within selected folders' },
+    i = { '<cmd>Telescope dir find_files<CR>', 'Find files within selected folders' },
   },
 
   p = {

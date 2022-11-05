@@ -57,14 +57,30 @@ return packer.startup(function(use)
   use('antoinemadec/FixCursorHold.nvim') -- This is needed to fix lsp doc highlight
   use('folke/which-key.nvim') --
   use('nathom/filetype.nvim') -- X
-  use('shaunsingh/nord.nvim') --
+  use({
+    'shaunsingh/nord.nvim', -- Colorscheme
+    commit = '78f5f001709b5b321a35dcdc44549ef93185e024',
+    config = function()
+      vim.cmd([[colorscheme nord]])
+    end,
+  })
   use({
     'max397574/better-escape.nvim', -- not using
     config = function()
       require('better_escape').setup()
     end,
   })
-  use('bergholmm/telescope-folder-grep.nvim') -- Check if I can optimize this one
+  use({
+    'princejoogie/dir-telescope.nvim',
+    -- telescope.nvim is a required dependency
+    requires = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('dir-telescope').setup({
+        hidden = true,
+        respect_gitignore = true,
+      })
+    end,
+  })
 
   use('mg979/vim-visual-multi') -- X
   use({ -- X
@@ -132,16 +148,12 @@ return packer.startup(function(use)
 
   use({
     'kylechui/nvim-surround', -- X
-    tag = '*', -- Use for stability; omit to use `main` branch for the latest features
+    tag = '*',
     config = function()
-      require('nvim-surround').setup({
-        -- Configuration here, or leave empty to use defaults
-      })
+      require('nvim-surround').setup({})
     end,
   })
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

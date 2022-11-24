@@ -6,7 +6,7 @@ end
 
 set -g fish_key_bindings vi_key_bindings
 
-set -gx EDITOR nvim
+set -gx EDITOR lvim
 set fish_greeting
 
 set PATH $HOME/.cargo/bin $PATH
@@ -38,8 +38,9 @@ end
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 
-alias n nvim
-alias t tmux
+alias n lvim
+alias nvim lvim
+# alias t tmux
 
 direnv hook fish | source
 zoxide init fish | source

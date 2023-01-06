@@ -81,6 +81,8 @@ lvim.builtin.which_key.mappings["f"] = {
   t = { "<cmd>Telescope live_grep<cr>", "Text" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
+  d = { "<cmd>Telescope dir find_files<CR>", "Find file in directory" },
+  D = { "<cmd>Telescope dir live_grep<CR>", "Find text in directory" },
   p = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
@@ -112,7 +114,6 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.view.width = 35
-lvim.builtin.nvimtree.setup.filters.custom = {}
 
 lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.ignore_install = { "haskell", 'phpdoc', 'tree-sitter-phpdoc' }

@@ -10,6 +10,7 @@ fish/completions/*
 fish/conf.d/git.fish
 fish/functions/*
 fish/fish_variables
+fish/conf.d/local.fish
 
 direnv/allow
 

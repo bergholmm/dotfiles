@@ -40,7 +40,6 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 
 alias n lvim
 alias nvim lvim
-# alias t tmux
 
 direnv hook fish | source
 zoxide init fish | source

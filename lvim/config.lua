@@ -5,6 +5,7 @@
 -- ethanholz/nvim-lastplace
 -- lukas-reineke/headlines.nvim
 
+
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "nord"
@@ -21,6 +22,7 @@ lvim.lsp.buffer_mappings.normal_mode["gd"] = { '<cmd>Telescope lsp_definitions t
 lvim.keys.normal_mode["<leader><space>"] = ":StripWhitespace <CR>"
 lvim.keys.normal_mode["<S-Tab>"] = { '<cmd>BufferLineCyclePrev<cr>' }
 lvim.keys.normal_mode["<Tab>"] = { '<cmd>BufferLineCycleNext<cr>' }
+lvim.keys.normal_mode["<C-CR>"] = { '<cmd>Copilot panel<CR>' }
 
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
@@ -200,6 +202,8 @@ lvim.plugins = {
       require('nvim-surround').setup({})
     end,
   },
+  { "github/copilot.vim" },
+  -- { "hrsh7th/cmp-copilot" },
   -- {
   --   "kwkarlwang/bufresize.nvim",
   --   config = function()
@@ -229,12 +233,15 @@ lvim.plugins = {
 }
 
 -- additional plugin settings
+
+-- theme
 local ok, nord = pcall(require, 'nord')
 if ok then
   vim.g.nord_borders = true
   nord.set()
 end
 
+-- rooter
 vim.g.rooter_pattern = {
   '.git',
   'Makefile',
@@ -247,6 +254,13 @@ vim.g.rooter_pattern = {
   'Cargo.toml',
 }
 vim.g.outermost_root = true
+
+-- copilot
+-- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
+-- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept("")', { expr = true, silent = true })
 
 
 -- general options

@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set files direnv fish nvim kitty lvim
+set files direnv fish nvim kitty lvim sway
 set dir $PWD
 set olddir $PWD/old
 

@@ -1,11 +1,3 @@
--- windwp/nvim-spectre
--- windwp/nvim-ts-autotag
--- metakirby5/codi.vim
--- npxbr/glow.nvim
--- ethanholz/nvim-lastplace
--- lukas-reineke/headlines.nvim
-
-
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
 lvim.colorscheme = "nord"
@@ -46,6 +38,7 @@ lvim.builtin.which_key.mappings["w"] = {}
 lvim.builtin.which_key.mappings["f"] = {}
 lvim.builtin.which_key.mappings["s"] = {}
 
+lvim.builtin.which_key.mappings[";"] = { "<cmd>Glow<cr>", "Preview markdown" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>Telescope buffers<cr>", "Find" }
 lvim.builtin.which_key.mappings["t"] = { '<cmd>NvimTreeToggle<cr>', 'Toggle explorer' }
 lvim.builtin.which_key.mappings["e"] = { '<cmd>NvimTreeFindFile<cr>', 'Find File Explorer' }
@@ -202,34 +195,45 @@ lvim.plugins = {
       require('nvim-surround').setup({})
     end,
   },
-  { "github/copilot.vim" },
-  -- { "hrsh7th/cmp-copilot" },
-  -- {
-  --   "kwkarlwang/bufresize.nvim",
-  --   config = function()
-  --     local opts = { noremap = true, silent = true }
-  --     require("bufresize").setup({
-  --       register = {
-  --         keys = {
-  --           { "n", "<leader>w<", "30<C-w><", opts },
-  --           { "n", "<leader>w>", "30<C-w>>", opts },
-  --           { "n", "<leader>w+", "10<C-w>+", opts },
-  --           { "n", "<leader>w-", "10<C-w>-", opts },
-  --           { "n", "<leader>w_", "<C-w>_", opts },
-  --           { "n", "<leader>w=", "<C-w>=", opts },
-  --           { "n", "<leader>w|", "<C-w>|", opts },
-  --           { "n", "<leader>wo", "<C-w>|<C-w>_", opts },
-  --         },
-  --         trigger_events = { "BufWinEnter", "WinEnter" },
-  --       },
-  --       resize = {
-  --         keys = {},
-  --         trigger_events = { "VimResized" },
-  --         increment = 5,
-  --       },
-  --     })
-  --   end,
-  -- }
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup({
+          panel = {
+            auto_refresh = true
+          },
+          suggestion = {
+            auto_trigger = true,
+            keymap = {
+              accept = "<C-l>"
+            }
+          },
+        })
+      end, 100)
+    end,
+  },
+  {
+    'lukas-reineke/headlines.nvim',
+    config = function()
+      require('headlines').setup()
+    end,
+  },
+  {
+    'ethanholz/nvim-lastplace',
+    config = function()
+      require('nvim-lastplace').setup()
+    end
+  },
+  {
+    'ellisonleao/glow.nvim',
+    config = function()
+      require('glow').setup()
+    end
+
+  }
 }
 
 -- additional plugin settings
@@ -255,33 +259,12 @@ vim.g.rooter_pattern = {
 }
 vim.g.outermost_root = true
 
--- copilot
--- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
--- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.api.nvim_set_keymap("i", "<C-l>", 'copilot#Accept("")', { expr = true, silent = true })
-
-
 -- general options
 vim.opt.backup = false
 vim.opt.timeoutlen = 500
 vim.opt.cursorline = false
 vim.opt.wrap = true
 
--- vim.opt.smartindent = true
--- vim.opt.relativenumber = true
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
+-- windwp/nvim-spectre
+-- windwp/nvim-ts-autotag
+-- metakirby5/codi.vim

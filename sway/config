@@ -1,37 +1,60 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
-#
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term kitty
+
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu wofi --show drun
+
+# set $menu wofi --show drun | xargs swaymsg exec --
+set $menu rofi -show drun | xargs swaymsg exec --
+
 set $browser MOZ_ENABLE_WAYLAND=1 firefox-developer-editon
 
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                 title     bg    text   indicator  border
+client.focused           $peach     $base $text  $rosewater $peach
+client.focused_inactive  $maroon    $base $text  $rosewater $maroon
+client.unfocused         $maroon    $base $text  $rosewater $maroon
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg ~/wallpapers/snow-cabin.jpg center #131020
 
 ### Idle configuration
 #
@@ -47,18 +70,6 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
 input "type:mouse" {
   natural_scroll disabled
@@ -70,6 +81,9 @@ input "type:keyboard" {
   xkb_layout eurkey
 }
 
+default_border pixel
+gaps inner 10
+
 ### Key bindings
 #
 # Basics:
@@ -78,10 +92,13 @@ input "type:keyboard" {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # lock
+    bindsym $mod+Shift+q exec swaylock -f -i ~/wallpapers/snow-cabin.jpg
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -95,6 +112,7 @@ input "type:keyboard" {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 #
 # Moving around:
 #
@@ -119,6 +137,7 @@ input "type:keyboard" {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -146,6 +165,19 @@ input "type:keyboard" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Move to the next/previous workspace
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+
+    # Move focused container to the next/previous workspace
+    bindsym $mod+bracketright move container to workspace next
+    bindsym $mod+bracketleft move container to workspace prev
+
+    bindsym $mod+Shift+bracketleft exec --no-startup-id ~/.config/sway/i3-new-workspace
+    bindsym $mod+Shift+bracketright exec --no-startup-id ~/.config/sway/i3-new-workspace -m
+
+
 #
 # Layout stuff:
 #
@@ -171,6 +203,7 @@ input "type:keyboard" {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -183,6 +216,7 @@ input "type:keyboard" {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -208,22 +242,27 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+# Apps and misc:
+#
+bindsym $mod+Control+b exec --no-startup-id "kitty -e bluetoothctl"
+bindsym $mod+Control+f exec --no-startup-id "firefox-developer-edition"
+bindsym $mod+Control+n exec --no-startup-id "notion-app"
+bindsym $mod+Control+s exec --no-startup-id "slack"
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+
+#
+# Screenshots and screen recording:
+#
+bindsym $mod+Control+p exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Control+Shift+p exec grim -g "$(slurp)" - | swappy -f -
+bindsym $mod+Control+r exec --no-startup-id 'kitty -e wf-recorder -g "$(slurp)" -f ~/Videos/$(date +%Y-%m-%d-%H-%M-%S).mp4'
 
 include /etc/sway/config.d/*
+
+# Waybar
+exec waybar
+
+# xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

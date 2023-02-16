@@ -162,7 +162,16 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", { silent = true })
     end,
   },
-  { 'shaunsingh/nord.nvim' },
+  -- { 'shaunsingh/nord.nvim' },
+  {
+    "catppuccin/nvim", as = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavor = "mocha",
+
+      })
+    end
+  },
   {
     'princejoogie/dir-telescope.nvim',
     requires = { 'nvim-telescope/telescope.nvim' },
@@ -233,17 +242,33 @@ lvim.plugins = {
       require('glow').setup()
     end
 
+  },
+  { 'MunifTanjim/nui.nvim' },
+  {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        -- optional configuration
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   }
 }
 
 -- additional plugin settings
 
 -- theme
-local ok, nord = pcall(require, 'nord')
-if ok then
-  vim.g.nord_borders = true
-  nord.set()
-end
+-- local ok, nord = pcall(require, 'nord')
+-- if ok then
+--   vim.g.nord_borders = true
+--   nord.set()
+-- end
+
+vim.cmd.colorscheme "catppuccin"
 
 -- rooter
 vim.g.rooter_pattern = {

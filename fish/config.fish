@@ -9,8 +9,13 @@ set -g fish_key_bindings vi_key_bindings
 set -gx EDITOR lvim
 set fish_greeting
 
+set -gx ENCORE_INSTALL "/home/bergholmm/.encore"
+
 set PATH $HOME/.cargo/bin $PATH
 set PATH $HOME/.local/bin $PATH
+set PATH $HOME/.nix-profile/bin $PATH
+set PATH $ENCORE_INSTALL/bin $PATH
+
 
 # Hide vim mode indicator
 function fish_mode_prompt

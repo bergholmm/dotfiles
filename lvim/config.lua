@@ -1,14 +1,24 @@
-lvim.log.level = "warn"
-lvim.format_on_save.enabled = true
-lvim.colorscheme = "nord"
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.relativenumber = true
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+vim.opt.backup = false
+vim.opt.timeoutlen = 500
+vim.opt.cursorline = false
+vim.opt.wrap = true
+vim.opt.textwidth = 80
+
+lvim.log.level = "info"
+lvim.format_on_save.enabled = true
+
 lvim.leader = ","
 lvim.keys.normal_mode["ge"] = "<cmd>lua vim.diagnostic.open_float()<CR>"
 lvim.keys.normal_mode["gp"] = '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>'
 lvim.keys.normal_mode["gn"] = '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>'
-lvim.keys.normal_mode["<leader>gb"] = '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
-lvim.keys.visual_mode["<leader>gb"] = '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
+lvim.keys.normal_mode["<leader>gb"] =
+'<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
+lvim.keys.visual_mode["<leader>gb"] =
+'<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>'
 lvim.lsp.buffer_mappings.normal_mode["gr"] = { '<cmd>Telescope lsp_references theme=dropdown<cr>', 'Goto references' }
 lvim.lsp.buffer_mappings.normal_mode["gd"] = { '<cmd>Telescope lsp_definitions theme=dropdown<cr>', 'Goto definition' }
 lvim.keys.normal_mode["<leader><space>"] = ":StripWhitespace <CR>"
@@ -116,7 +126,6 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
 lvim.lsp.installer.setup.ensure_installed = {
-  "sumneko_lua",
   "jsonls",
   'rust_analyzer',
   'bashls',
@@ -133,18 +142,19 @@ lvim.lsp.installer.setup.ensure_installed = {
 -- formatters
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
+  { command = "black",      filetypes = { "python" } },
+  { command = "isort",      filetypes = { "python" } },
   { command = "prettier" },
-  { command = "gofumpt" }
+  { command = "gofumpt" },
+  { command = "swiftformat" }
 }
 
 -- linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8", filetypes = { "python" } },
+  { command = "flake8",     filetypes = { "python" } },
   { command = "shellcheck", extra_args = { "--severity", "warning" } },
-  { command = "codespell", filetypes = { "javascript", "python" } },
+  { command = "codespell",  filetypes = { "javascript", "python" } },
   { command = "eslint_d" }
 }
 
@@ -162,9 +172,9 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", { silent = true })
     end,
   },
-  -- { 'shaunsingh/nord.nvim' },
   {
-    "catppuccin/nvim", as = "catppuccin",
+    "catppuccin/nvim",
+    name = "catppuccin",
     config = function()
       require("catppuccin").setup({
         flavor = "mocha",
@@ -174,7 +184,7 @@ lvim.plugins = {
   },
   {
     'princejoogie/dir-telescope.nvim',
-    requires = { 'nvim-telescope/telescope.nvim' },
+    dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
       require('dir-telescope').setup({
         hidden = true,
@@ -188,7 +198,7 @@ lvim.plugins = {
   {
     'ntpeters/vim-better-whitespace',
     event = 'BufRead',
-    opt = true,
+    lazy = true,
   },
   { 'ygm2/rooter.nvim' },
   {
@@ -199,7 +209,7 @@ lvim.plugins = {
   },
   {
     'kylechui/nvim-surround',
-    tag = '*',
+    version = '*',
     config = function()
       require('nvim-surround').setup({})
     end,
@@ -241,33 +251,12 @@ lvim.plugins = {
     config = function()
       require('glow').setup()
     end
-
   },
-  { 'MunifTanjim/nui.nvim' },
-  {
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup({
-        -- optional configuration
-      })
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  }
 }
 
 -- additional plugin settings
 
 -- theme
--- local ok, nord = pcall(require, 'nord')
--- if ok then
---   vim.g.nord_borders = true
---   nord.set()
--- end
-
 vim.cmd.colorscheme "catppuccin"
 
 -- rooter
@@ -283,12 +272,6 @@ vim.g.rooter_pattern = {
   'Cargo.toml',
 }
 vim.g.outermost_root = true
-
--- general options
-vim.opt.backup = false
-vim.opt.timeoutlen = 500
-vim.opt.cursorline = false
-vim.opt.wrap = true
 
 -- windwp/nvim-spectre
 -- windwp/nvim-ts-autotag

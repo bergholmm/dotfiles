@@ -49,3 +49,10 @@ alias nvim lvim
 direnv hook fish | source
 zoxide init fish | source
 starship init fish | source
+
+# pnpm
+set -gx PNPM_HOME "/Users/bergholm/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+
+# Google Cloud SDK
+source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"

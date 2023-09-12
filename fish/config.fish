@@ -4,45 +4,26 @@ function vi_key_bindings
     bind -M visual -m default jj force-repaint
 end
 
+# Hide vim mode indicator
+function fish_mode_prompt
+  # NOOP - Disable vim mode indicator
+end
+
 set -g fish_key_bindings vi_key_bindings
 
 set -gx EDITOR lvim
 set fish_greeting
 
 set -gx ENCORE_INSTALL "/home/bergholmm/.encore"
+set -gx PNPM_HOME "/Users/bergholm/Library/pnpm"
 
-set PATH $HOME/.cargo/bin $PATH
-set PATH $HOME/.local/bin $PATH
-set PATH $HOME/.nix-profile/bin $PATH
-set PATH $ENCORE_INSTALL/bin $PATH
+fish_add_path $PNPM_HOME
+fish_add_path $ENCORE_INSTALL/bin
+fish_add_path $HOME/.nix-profile/bin
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cargo/bin
 
-
-# Hide vim mode indicator
-function fish_mode_prompt
-  # NOOP - Disable vim mode indicator
-end
-
-set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
-set -x LC_ALL en_US.UTF-8
-
-# Use "r" as command for ranger with the addition that is changes
-# the current directory for fish when exited
-function r
-    set tmpfile "/tmp/pwd-from-ranger"
-    ranger --choosedir=$tmpfile $argv
-    set rangerpwd (cat $tmpfile)
-    if test "$PWD" != $rangerpwd
-        cd $rangerpwd
-    end
-end
-
-function nvm
-    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
-
-# Generated for envman. Do not edit.
-test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
-
+# nvim -> lvim
 alias n lvim
 alias nvim lvim
 
@@ -50,9 +31,15 @@ direnv hook fish | source
 zoxide init fish | source
 starship init fish | source
 
-# pnpm
-set -gx PNPM_HOME "/Users/bergholm/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
+set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
+set -x LC_ALL en_US.UTF-8
+
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 
 # Google Cloud SDK
 source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"

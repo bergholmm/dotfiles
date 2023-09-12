@@ -26,6 +26,8 @@ lvim.keys.normal_mode["<S-Tab>"] = { '<cmd>BufferLineCyclePrev<cr>' }
 lvim.keys.normal_mode["<Tab>"] = { '<cmd>BufferLineCycleNext<cr>' }
 lvim.keys.normal_mode["<C-CR>"] = { '<cmd>Copilot panel<CR>' }
 
+table.insert(lvim.builtin.project.patterns, 0, "!>packages")
+
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
   i = {
@@ -48,6 +50,7 @@ lvim.builtin.which_key.mappings["w"] = {}
 lvim.builtin.which_key.mappings["f"] = {}
 lvim.builtin.which_key.mappings["s"] = {}
 
+lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>Telescope buffers previewer=false<cr>", "List buffers" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>Glow<cr>", "Preview markdown" }
 lvim.builtin.which_key.mappings["q"] = { "<cmd>Telescope buffers<cr>", "Find" }
 lvim.builtin.which_key.mappings["t"] = { '<cmd>NvimTreeToggle<cr>', 'Toggle explorer' }
@@ -88,10 +91,28 @@ lvim.builtin.which_key.mappings["f"] = {
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   d = { "<cmd>Telescope dir find_files<CR>", "Find file in directory" },
   D = { "<cmd>Telescope dir live_grep<CR>", "Find text in directory" },
+  l = { "<cmd>Telescope resume<cr>", "Resume last search" },
   p = {
     "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
     "Colorscheme with Preview",
   }
+}
+
+lvim.builtin.which_key.mappings["."] = {
+  name = "ChatGPT",
+  c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+  e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+  g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+  t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+  k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+  d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+  a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+  o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+  s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+  f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+  x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+  r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+  l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
 }
 
 lvim.builtin.which_key.mappings["o"] = {
@@ -114,7 +135,7 @@ lvim.builtin.which_key.mappings["o"] = {
 
 -- plugin settings
 lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.which_key.setup.plugins.registers = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -200,7 +221,6 @@ lvim.plugins = {
     event = 'BufRead',
     lazy = true,
   },
-  { 'ygm2/rooter.nvim' },
   {
     'ruifm/gitlinker.nvim',
     config = function()
@@ -252,27 +272,37 @@ lvim.plugins = {
       require('glow').setup()
     end
   },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        openai_params = {
+          model = "gpt-4",
+          max_tokens = 500,
+        }
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 }
-
--- additional plugin settings
 
 -- theme
 vim.cmd.colorscheme "catppuccin"
 
--- rooter
-vim.g.rooter_pattern = {
-  '.git',
-  'Makefile',
-  '_darcs',
-  '.hg',
-  '.bzr',
-  '.svn',
-  'node_modules',
-  'CMakeLists.txt',
-  'Cargo.toml',
-}
-vim.g.outermost_root = true
-
 -- windwp/nvim-spectre
 -- windwp/nvim-ts-autotag
 -- metakirby5/codi.vim
+
+local group = vim.api.nvim_create_augroup("__env", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = ".env",
+  group = group,
+  callback = function(args)
+    vim.diagnostic.disable(args.buf)
+  end
+})

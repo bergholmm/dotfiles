@@ -1,6 +1,3 @@
-# settings.vim
-
-
 " Better Navigation
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
 xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
@@ -13,5 +10,18 @@ xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
 nnoremap <silent> <C-w>_ :<C-u>call VSCodeNotify('workbench.action.toggleEditorWidths')<CR>
 
-nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
-xnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+nnoremap <silent> , :call VSCodeNotify('whichkey.show')<CR>
+xnoremap <silent> , :call VSCodeNotify('whichkey.show')<CR>
+
+set clipboard=unnamedplus
+set hlsearch
+set ignorecase
+set noshowmode
+set smartcase
+set smartindent
+set splitbelow
+set splitright
+set noswapfile
+set timeoutlen=500
+set undofile
+set noruler

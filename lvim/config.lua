@@ -7,6 +7,7 @@ vim.opt.timeoutlen = 500
 vim.opt.cursorline = false
 vim.opt.wrap = true
 vim.opt.textwidth = 80
+vim.opt.scrolloff = 999
 
 lvim.log.level = "info"
 lvim.format_on_save.enabled = true
@@ -22,8 +23,10 @@ lvim.keys.visual_mode["<leader>gb"] =
 lvim.lsp.buffer_mappings.normal_mode["gr"] = { '<cmd>Telescope lsp_references theme=dropdown<cr>', 'Goto references' }
 lvim.lsp.buffer_mappings.normal_mode["gd"] = { '<cmd>Telescope lsp_definitions theme=dropdown<cr>', 'Goto definition' }
 lvim.keys.normal_mode["<leader><space>"] = ":StripWhitespace <CR>"
-lvim.keys.normal_mode["<S-Tab>"] = { '<cmd>BufferLineCyclePrev<cr>' }
-lvim.keys.normal_mode["<Tab>"] = { '<cmd>BufferLineCycleNext<cr>' }
+-- lvim.keys.normal_mode["<S-Tab>"] = { '<cmd>BufferLineCyclePrev<cr>' }
+-- lvim.keys.normal_mode["<Tab>"] = { '<cmd>BufferLineCycleNext<cr>' }
+lvim.keys.normal_mode["<S-Tab>"] = { '<cmd>bprevious<cr>' }
+lvim.keys.normal_mode["<Tab>"] = { '<cmd>bnext<cr>' }
 lvim.keys.normal_mode["<C-CR>"] = { '<cmd>Copilot panel<CR>' }
 
 table.insert(lvim.builtin.project.patterns, 0, "!>packages")
@@ -50,9 +53,10 @@ lvim.builtin.which_key.mappings["w"] = {}
 lvim.builtin.which_key.mappings["f"] = {}
 lvim.builtin.which_key.mappings["s"] = {}
 
-lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>Telescope buffers previewer=false<cr>", "List buffers" }
+-- lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>Telescope buffers previewer=false<cr>", "List buffers" }
+lvim.builtin.which_key.mappings["<tab>"] = { "<cmd>Telescope buffers sort_mru=true<cr>", "Find" }
 lvim.builtin.which_key.mappings[";"] = { "<cmd>Glow<cr>", "Preview markdown" }
-lvim.builtin.which_key.mappings["q"] = { "<cmd>Telescope buffers<cr>", "Find" }
+lvim.builtin.which_key.mappings["q"] = { "<cmd>jumps<cr>", "Jump" }
 lvim.builtin.which_key.mappings["t"] = { '<cmd>NvimTreeToggle<cr>', 'Toggle explorer' }
 lvim.builtin.which_key.mappings["e"] = { '<cmd>NvimTreeFindFile<cr>', 'Find File Explorer' }
 lvim.builtin.which_key.mappings["a"] = { "<cmd>Alpha<CR>", "Alpha" }
@@ -135,15 +139,21 @@ lvim.builtin.which_key.mappings["o"] = {
 
 -- plugin settings
 lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = 'startify'
 lvim.builtin.which_key.setup.plugins.registers = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.view.width = 35
-
 lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.ignore_install = { "haskell", 'phpdoc', 'tree-sitter-phpdoc' }
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.bufferline.active = false
+lvim.builtin.lualine.active = false
+lvim.builtin.gitsigns.opts.current_line_blame = true
+lvim.builtin.gitsigns.on_config_done = function()
+  require("scrollbar.handlers.gitsigns").setup()
+end
 
 -- generic LSP settings
 lvim.lsp.installer.setup.ensure_installed = {
@@ -173,7 +183,7 @@ formatters.setup {
 -- linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8",     filetypes = { "python" } },
+  { command = "flake8",     filetypes = { "python" },                extra_args = { "--max-line-length", "125" } },
   { command = "shellcheck", extra_args = { "--severity", "warning" } },
   { command = "codespell",  filetypes = { "javascript", "python" } },
   { command = "eslint_d" }
@@ -202,6 +212,12 @@ lvim.plugins = {
 
       })
     end
+  },
+  {
+    "gbprod/nord.nvim",
+    config = function()
+      require("nord").setup({})
+    end,
   },
   {
     'princejoogie/dir-telescope.nvim',
@@ -257,7 +273,21 @@ lvim.plugins = {
   {
     'lukas-reineke/headlines.nvim',
     config = function()
-      require('headlines').setup()
+      require('headlines').setup({
+        markdown = {
+          headline_highlights = {
+            "Headline1",
+            "Headline2",
+            "Headline3",
+            "Headline4",
+            "Headline5",
+            "Headline6",
+          },
+          codeblock_highlight = "CodeBlock",
+          dash_highlight = "Dash",
+          quote_highlight = "Quote",
+        },
+      })
     end,
   },
   {
@@ -273,6 +303,38 @@ lvim.plugins = {
     end
   },
   {
+    "kwkarlwang/bufjump.nvim",
+    config = function()
+      require("bufjump").setup()
+    end
+  },
+  {
+    'petertriho/nvim-scrollbar',
+    config = function()
+      require('scrollbar').setup()
+    end
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    config = function()
+      -- require('hlslens').setup() is not required
+      require("scrollbar.handlers.search").setup({
+        -- hlslens config overrides
+      })
+    end,
+  },
+  {
+    "robitx/gp.nvim",
+    config = function()
+      require("gp").setup()
+
+      -- or setup with your own config (see Install > Configuration in Readme)
+      -- require("gp").setup(conf)
+
+      -- shortcuts might be setup here (see Usage > Shortcuts in Readme)
+    end,
+  },
+  {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
@@ -280,6 +342,9 @@ lvim.plugins = {
         openai_params = {
           model = "gpt-4",
           max_tokens = 500,
+        },
+        popup_layout = {
+          default = 'right'
         }
       })
     end,
@@ -291,8 +356,9 @@ lvim.plugins = {
   }
 }
 
--- theme
-vim.cmd.colorscheme "catppuccin"
+lvim.colorscheme = "nord"
+-- lvim.colorscheme "catppuccin-mocha"
+vim.cmd [[ set laststatus=0 ]]
 
 -- windwp/nvim-spectre
 -- windwp/nvim-ts-autotag

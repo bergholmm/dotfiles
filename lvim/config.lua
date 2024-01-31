@@ -148,7 +148,20 @@ lvim.builtin.nvimtree.setup.view.width = 35
 lvim.builtin.treesitter.ensure_installed = "all"
 lvim.builtin.treesitter.ignore_install = { "haskell", 'phpdoc', 'tree-sitter-phpdoc' }
 lvim.builtin.treesitter.highlight.enable = true
-lvim.builtin.bufferline.active = false
+lvim.builtin.bufferline.active = true
+lvim.builtin.bufferline.options = {
+  indicator = {
+    icon = lvim.icons.ui.BoldLineLeft, -- this should be omitted if indicator style is not 'icon'
+    style = "none",                    -- can also be 'underline'|'none',
+  },
+  diagnostics = "none",
+  diagnostics_indicator = nil,
+  buffer_close_icon = nil,
+  modified_icon = nil,
+  close_icon = nil,
+  show_buffer_icons = 'none',
+  show_buffer_close_icons = 'none',
+}
 lvim.builtin.lualine.active = false
 lvim.builtin.gitsigns.opts.current_line_blame = true
 lvim.builtin.gitsigns.on_config_done = function()
@@ -201,22 +214,6 @@ lvim.plugins = {
     config = function()
       require("hop").setup({ keys = 'etovxqpdygfblzhckisuran' })
       vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", { silent = true })
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    config = function()
-      require("catppuccin").setup({
-        flavor = "mocha",
-
-      })
-    end
-  },
-  {
-    "gbprod/nord.nvim",
-    config = function()
-      require("nord").setup({})
     end,
   },
   {
@@ -356,8 +353,6 @@ lvim.plugins = {
   }
 }
 
-lvim.colorscheme = "nord"
--- lvim.colorscheme "catppuccin-mocha"
 vim.cmd [[ set laststatus=0 ]]
 
 -- windwp/nvim-spectre

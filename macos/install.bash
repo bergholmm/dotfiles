@@ -15,6 +15,11 @@ brew install --cask iterm2-nightly firefox-developer-edition insomnia slack visu
 echo "Installing fonts"
 brew tap homebrew/cask-fonts
 brew install --cask font-caskaydia-cove-nerd-font
+brew install --cask font-iosevka-term-nerd-font
+brew install --cask font-iosevka-nerd-font
+
+brew install jesseduffield/lazygit/lazygit
+brew install lazygit
 
 echo "Installing App Store apps"
 # mas install 441258766 # Magnet

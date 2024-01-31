@@ -11,7 +11,10 @@ end
 
 set -g fish_key_bindings vi_key_bindings
 
-set -gx EDITOR lvim
+set -gx EDITOR nvim
+alias n nvim
+# alias nvim lvim
+
 set fish_greeting
 
 set -gx ENCORE_INSTALL "/home/bergholmm/.encore"
@@ -23,9 +26,6 @@ fish_add_path $HOME/.nix-profile/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.cargo/bin
 
-# nvim -> lvim
-alias n lvim
-alias nvim lvim
 
 direnv hook fish | source
 zoxide init fish | source
@@ -43,3 +43,7 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 
 # Google Cloud SDK
 source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

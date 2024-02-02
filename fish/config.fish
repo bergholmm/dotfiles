@@ -6,7 +6,7 @@ end
 
 # Hide vim mode indicator
 function fish_mode_prompt
-  # NOOP - Disable vim mode indicator
+    # NOOP - Disable vim mode indicator
 end
 
 set -g fish_key_bindings vi_key_bindings
@@ -18,7 +18,7 @@ alias n nvim
 set fish_greeting
 
 set -gx ENCORE_INSTALL "/home/bergholmm/.encore"
-set -gx PNPM_HOME "/Users/bergholm/Library/pnpm"
+set -gx PNPM_HOME /Users/bergholm/Library/pnpm
 
 fish_add_path $PNPM_HOME
 fish_add_path $ENCORE_INSTALL/bin
@@ -31,8 +31,10 @@ direnv hook fish | source
 zoxide init fish | source
 starship init fish | source
 
-set -gx FZF_DEFAULT_COMMAND  'rg --files --follow --hidden'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 set -x LC_ALL en_US.UTF-8
+
+source $__fish_config_dir/themes/Github\ Dark\ Colorblind.fish
 
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv

@@ -2,13 +2,14 @@ local Util = require("lazyvim.util")
 local gpconfig = require("../config/gp")
 
 return {
-  -- { "bergholmm/andromeda.nvim" },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "andromeda",
-  --   },
-  -- },
+  -- { "ellisonleao/gruvbox.nvim" },
+  { "projekt0n/github-nvim-theme" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "github_dark_colorblind",
+    },
+  },
   { "rktjmp/lush.nvim" },
   {
     "robitx/gp.nvim",

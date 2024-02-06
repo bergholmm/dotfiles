@@ -1,10 +1,9 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
-map("n", "<leader><space>", ":StripWhitespace <CR>", { desc = "Strip Whitespace" })
 map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
 map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader><Tab>", "<cmd>Telescope buffers sort_mru=true<cr>", { desc = "Find buffers" })
+map("n", "<leader><Tab>", "<cmd>Telescope buffers sort_mru=true theme=dropdown<cr>", { desc = "Find buffers" })
 
 -- Mappings for GP plugin '.'
 map("v", "<leader>.c", ":<C-u>'<,'>GpChatNew<cr>", { desc = "Visual Chat New" })

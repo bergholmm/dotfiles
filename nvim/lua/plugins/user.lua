@@ -1,8 +1,10 @@
 local Util = require("lazyvim.util")
 local gpconfig = require("../config/gp")
+local _, actions = pcall(require, "telescope.actions")
 
 return {
   -- { "ellisonleao/gruvbox.nvim" },
+  -- { "rktjmp/lush.nvim" },
   { "projekt0n/github-nvim-theme" },
   {
     "LazyVim/LazyVim",
@@ -10,13 +12,14 @@ return {
       colorscheme = "github_dark_colorblind",
     },
   },
-  { "rktjmp/lush.nvim" },
   {
     "robitx/gp.nvim",
     config = function()
       require("gp").setup(gpconfig)
     end,
   },
+  { "akinsho/bufferline.nvim", enabled = false },
+
   {
     "nvim-lualine/lualine.nvim",
     enabled = true,
@@ -112,8 +115,24 @@ return {
         extensions = { "neo-tree", "lazy" },
       }
     end,
-    -- TOOD: only show line numbers, errors and warnings with transparent
-    -- backgound
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        buffers = {
+          initial_mode = "normal",
+          mappings = {
+            i = {
+              ["<C-d>"] = actions.delete_buffer,
+            },
+            n = {
+              ["dd"] = actions.delete_buffer,
+            },
+          },
+        },
+      },
+    },
   },
   {
     "princejoogie/dir-telescope.nvim",
@@ -127,11 +146,6 @@ return {
   },
   { "mg979/vim-visual-multi" },
   { "christoomey/vim-sort-motion" },
-  {
-    "ntpeters/vim-better-whitespace",
-    event = "BufRead",
-    lazy = true,
-  },
   {
     "ruifm/gitlinker.nvim",
     config = function()

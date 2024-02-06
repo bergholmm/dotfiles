@@ -19,7 +19,6 @@ return {
     end,
   },
   { "akinsho/bufferline.nvim", enabled = false },
-
   {
     "nvim-lualine/lualine.nvim",
     enabled = true,
@@ -195,6 +194,12 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+      })
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)

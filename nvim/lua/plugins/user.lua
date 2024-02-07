@@ -196,6 +196,7 @@ return {
       local cmp = require("cmp")
 
       opts.sources = cmp.config.sources({
+        { name = "copilot", group_index = 1, priority = 100 },
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "path" },

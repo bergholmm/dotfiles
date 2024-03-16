@@ -34,7 +34,8 @@ starship init fish | source
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 set -x LC_ALL en_US.UTF-8
 
-source $__fish_config_dir/themes/Github\ Dark\ Colorblind.fish
+# source $__fish_config_dir/themes/Github\ Dark\ Colorblind.fish
+source $__fish_config_dir/themes/gruvbox.fish
 
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv

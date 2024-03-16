@@ -3,13 +3,16 @@ local gpconfig = require("../config/gp")
 local _, actions = pcall(require, "telescope.actions")
 
 return {
-  -- { "ellisonleao/gruvbox.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "sainnhe/gruvbox-material" },
   -- { "rktjmp/lush.nvim" },
   { "projekt0n/github-nvim-theme" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_dark_colorblind",
+      -- colorscheme = "github_dark_colorblind",
+      -- colorscheme = "gruvbox",
+      colorscheme = "gruvbox-material",
     },
   },
   {
@@ -184,6 +187,9 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()
@@ -227,6 +233,12 @@ return {
           end
         end, { "i", "s" }),
       })
+
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        format_kinds(entry, item) -- add icons
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
     end,
   },
   {

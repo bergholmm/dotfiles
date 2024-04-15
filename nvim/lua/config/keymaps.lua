@@ -1,6 +1,8 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
 
+map("i", "<S-Tab>", "<C-d>")
+
 map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
 map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader><Tab>", "<cmd>Telescope buffers sort_mru=true theme=dropdown<cr>", { desc = "Find buffers" })
@@ -19,7 +21,7 @@ map("v", "<leader>.a", ":<C-u>'<,'>GpAppend<cr>", { desc = "Visual Append (after
 map("v", "<leader>.b", ":<C-u>'<,'>GpPrepend<cr>", { desc = "Visual Prepend (before)" })
 map("v", "<leader>.i", ":<C-u>'<,'>GpImplement<cr>", { desc = "Implement selection" })
 
--- Nested 'g' mappings
+-- GP: Nested 'g' mappings
 map("v", "<leader>.gp", ":<C-u>'<,'>GpPopup<cr>", { desc = "Visual Popup" })
 map("v", "<leader>.ge", ":<C-u>'<,'>GpEnew<cr>", { desc = "Visual GpEnew" })
 map("v", "<leader>.gn", ":<C-u>'<,'>GpNew<cr>", { desc = "Visual GpNew" })
@@ -30,7 +32,7 @@ map("v", "<leader>.n", "<cmd>GpNextAgent<cr>", { desc = "Next Agent" })
 map("v", "<leader>.s", "<cmd>GpStop<cr>", { desc = "GpStop" })
 map("v", "<leader>.x", ":<C-u>'<,'>GpContext<cr>", { desc = "Visual GpContext" })
 
--- Nested 'w' mappings
+-- GP: Nested 'w' mappings
 map("v", "<leader>.ww", ":<C-u>'<,'>GpWhisper<cr>", { desc = "Whisper" })
 map("v", "<leader>.wr", ":<C-u>'<,'>GpWhisperRewrite<cr>", { desc = "Whisper Rewrite" })
 map("v", "<leader>.wa", ":<C-u>'<,'>GpWhisperAppend<cr>", { desc = "Whisper Append (after)" })
@@ -41,7 +43,7 @@ map("v", "<leader>.wn", ":<C-u>'<,'>GpWhisperNew<cr>", { desc = "Whisper New" })
 map("v", "<leader>.wv", ":<C-u>'<,'>GpWhisperVnew<cr>", { desc = "Whisper Vnew" })
 map("v", "<leader>.wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", { desc = "Whisper Tabnew" })
 
--- Normal mode mappings
+-- GP: Normal mode mappings
 map("n", "<leader>.c", "<cmd>GpChatNew<cr>", { desc = "New Chat" })
 map("n", "<leader>.t", "<cmd>GpChatToggle<cr>", { desc = "Toggle Chat" })
 map("n", "<leader>.f", "<cmd>GpChatFinder<cr>", { desc = "Chat Finder" })
@@ -54,7 +56,7 @@ map("n", "<leader>.r", "<cmd>GpRewrite<cr>", { desc = "Inline Rewrite" })
 map("n", "<leader>.a", "<cmd>GpAppend<cr>", { desc = "Append (after)" })
 map("n", "<leader>.b", "<cmd>GpPrepend<cr>", { desc = "Prepend (before)" })
 
--- Nested 'g' mappings for Normal mode
+-- GP: Nested 'g' mappings for Normal mode
 map("n", "<leader>.gp", "<cmd>GpPopup<cr>", { desc = "Popup" })
 map("n", "<leader>.ge", "<cmd>GpEnew<cr>", { desc = "GpEnew" })
 map("n", "<leader>.gn", "<cmd>GpNew<cr>", { desc = "GpNew" })
@@ -65,7 +67,7 @@ map("n", "<leader>.n", "<cmd>GpNextAgent<cr>", { desc = "Next Agent" })
 map("n", "<leader>.s", "<cmd>GpStop<cr>", { desc = "GpStop" })
 map("n", "<leader>.x", "<cmd>GpContext<cr>", { desc = "Toggle GpContext" })
 
--- Nested 'w' mappings for Normal mode
+-- GP: Nested 'w' mappings for Normal mode
 map("n", "<leader>.ww", "<cmd>GpWhisper<cr>", { desc = "Whisper" })
 map("n", "<leader>.wr", "<cmd>GpWhisperRewrite<cr>", { desc = "Whisper Inline Rewrite" })
 map("n", "<leader>.wa", "<cmd>GpWhisperAppend<cr>", { desc = "Whisper Append (after)" })

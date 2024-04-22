@@ -8,12 +8,20 @@ config.font_size = 16
 
 config.keys = {
   {
-    key = 'P',
-    mods = 'CTRL',
+    key = 'E',
+    mods = 'CTRL|SHIFT',
+    -- action = wezterm.action.QuickSelectArgs({
+    --   patterns = {
+    --     'https?://\\S+',
+    --   },
+    -- }),
     action = wezterm.action.QuickSelectArgs({
-      patterns = {
-        'https?://\\S+',
-      },
+      label = 'open url',
+      patterns = { 'https?://\\S+' },
+      action = wezterm.action_callback(function(window, pane)
+        local url = window:get_selection_text_for_pane(pane)
+        wezterm.open_with(url)
+      end),
     }),
   },
   {

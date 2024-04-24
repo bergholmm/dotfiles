@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
 
-config.font = wezterm.font('IosevkaTerm Nerd Font')
+config.font = wezterm.font('Iosevka Extended')
 config.font_size = 16
 
 config.keys = {

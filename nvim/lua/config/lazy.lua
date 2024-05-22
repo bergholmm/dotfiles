@@ -22,7 +22,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     -- { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.formatting.black" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.editor.navic" },
 
     -- import/override with your plugins

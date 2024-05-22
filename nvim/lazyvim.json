@@ -1,9 +1,10 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.lang.tailwind"
+    "lazyvim.plugins.extras.lang.tailwind",
+    "lazyvim.plugins.extras.lang.toml"
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "4964"
   },
-  "version": 3
+  "version": 4
 }

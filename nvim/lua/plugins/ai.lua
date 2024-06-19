@@ -13,7 +13,7 @@ return {
     build = ":Copilot auth",
     event = "InsertEnter",
     opts = {
-      suggestion = { enabled = true, auto_trigger = true, keymap = { accept = "<C-j>" } },
+      suggestion = { enabled = true, auto_trigger = true, keymap = { accept = "<C-l>" } },
       panel = {
         enabled = true,
         auto_refresh = false,

@@ -2,12 +2,6 @@ local gpconfig = require("../config/gp")
 
 return {
   {
-    "robitx/gp.nvim",
-    config = function()
-      require("gp").setup(gpconfig)
-    end,
-  },
-  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     build = ":Copilot auth",

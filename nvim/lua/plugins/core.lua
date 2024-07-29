@@ -1,18 +1,8 @@
 return {
-  { "sainnhe/gruvbox-material" },
-  -- {
-  --   "olivercederborg/poimandres.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require("poimandres").setup({})
-  --   end,
-  -- },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
-      -- colorscheme = "poimandres",
+      colorscheme = "tokyonight-night",
     },
   },
   {

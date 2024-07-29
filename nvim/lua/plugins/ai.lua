@@ -1,5 +1,3 @@
-local gpconfig = require("../config/gp")
-
 return {
   {
     "zbirenbaum/copilot.lua",

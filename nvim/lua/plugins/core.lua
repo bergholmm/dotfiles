@@ -9,7 +9,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = {
-        enable = false,
+        enabled = false,
       },
       servers = {
         gopls = {

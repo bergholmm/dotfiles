@@ -1,5 +1,4 @@
-if test "$(uname)" = "Darwin"
-then
+if test "$(uname)" = "Darwin"; then
   ./macos/install.bash
 else
   ./linux/install.bash
@@ -9,11 +8,10 @@ echo "Linking dotfiles"
 fish $PWD/linkfiles.fish
 
 echo "Setting fish theme"
-fish_config theme save Nord
+# fish_config theme save Nord
 
 echo "Installing npm packages"
 npm i -g yarn eslint prettier neovim
-
 
 echo "Install linters"
 rustup-init

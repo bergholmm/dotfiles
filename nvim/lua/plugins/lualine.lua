@@ -3,14 +3,11 @@ local Util = require("lazyvim.util")
 return {
   {
     "nvim-lualine/lualine.nvim",
-    enabled = false,
+    enabled = true,
     opts = function()
-      -- PERF: we don't need this lualine require madness 🤷
       local lualine_require = require("lualine_require")
       lualine_require.require = require
-
       local icons = require("lazyvim.config").icons
-
       vim.o.laststatus = vim.g.lualine_laststatus
 
       return {

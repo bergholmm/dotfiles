@@ -1,7 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.editor.harpoon2",
     "lazyvim.plugins.extras.lang.sql",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.terraform",

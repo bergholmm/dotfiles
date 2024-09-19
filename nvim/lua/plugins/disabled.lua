@@ -7,4 +7,8 @@ return {
     "folke/flash.nvim",
     enabled = false,
   },
+  {
+    "zbirenbaum/copilot-cmp",
+    endabled = false,
+  },
 }

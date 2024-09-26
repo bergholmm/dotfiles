@@ -18,7 +18,14 @@ return {
 
       return {
         options = {
-          theme = auto_theme_custom,
+          theme = {
+            normal = auto_theme_custom.normal,
+            insert = auto_theme_custom.normal,
+            visual = auto_theme_custom.normal,
+            replace = auto_theme_custom.normal,
+            command = auto_theme_custom.normal,
+            inactive = auto_theme_custom.normal,
+          },
           globalstatus = false,
           disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
           component_separators = { left = " ", right = " " },
@@ -29,16 +36,30 @@ return {
           lualine_a = {},
           lualine_b = {},
           lualine_c = {
-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { Util.lualine.pretty_path() },
+            "%=",
+            { "filetype", icon_only = true, padding = { left = 0, right = 0 } },
+            {
+              "filename",
+              path = 1, -- Show relative path
+              symbols = {
+                modified = "",
+                readonly = "",
+                unnamed = "",
+              },
+            },
             {
               function()
-                return require("nvim-navic").get_location()
+                if vim.bo.modified then
+                  return "●"
+                else
+                  return ""
+                end
               end,
-              cond = function()
-                return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-              end,
+              color = { fg = "#63a699" },
+              padding = { left = 0, right = 0 },
             },
+          },
+          lualine_x = {
             {
               "diagnostics",
               symbols = {
@@ -66,8 +87,6 @@ return {
                 end
               end,
             },
-          },
-          lualine_x = {
             {
               function()
                 return require("noice").api.status.command.get()

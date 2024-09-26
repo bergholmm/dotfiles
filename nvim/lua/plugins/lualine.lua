@@ -1,13 +1,7 @@
-local Util = require("lazyvim.util")
-
 return {
   {
     "nvim-lualine/lualine.nvim",
     enabled = true,
-    init = function()
-      vim.g.lualine_laststatus = 0
-      vim.o.laststatus = 0
-    end,
     opts = function()
       local lualine_require = require("lualine_require")
       local icons = require("lazyvim.config").icons
@@ -86,24 +80,6 @@ return {
                   }
                 end
               end,
-            },
-            {
-              function()
-                return require("noice").api.status.command.get()
-              end,
-              cond = function()
-                return package.loaded["noice"] and require("noice").api.status.command.has()
-              end,
-              color = Util.ui.fg("Statement"),
-            },
-            {
-              function()
-                return require("noice").api.status.mode.get()
-              end,
-              cond = function()
-                return package.loaded["noice"] and require("noice").api.status.mode.has()
-              end,
-              color = Util.ui.fg("Constant"),
             },
           },
           lualine_y = {},

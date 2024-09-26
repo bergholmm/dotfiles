@@ -3,11 +3,8 @@ return {
     "nvim-lualine/lualine.nvim",
     enabled = true,
     opts = function()
-      local lualine_require = require("lualine_require")
       local icons = require("lazyvim.config").icons
       local auto_theme_custom = require("lualine.themes.auto")
-
-      lualine_require.require = require
       auto_theme_custom.normal.c.bg = "none"
 
       return {
@@ -21,11 +18,24 @@ return {
             inactive = auto_theme_custom.normal,
           },
           globalstatus = false,
-          disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = {},
+          always_divide_middle = true,
+          refresh = {
+            statusline = 1000,
+            winbar = 1000,
+            tabline = 1000,
+          },
           component_separators = { left = " ", right = " " },
           section_separators = { left = " ", right = " " },
         },
         sections = {},
+        inactive_sections = {},
+        winbar = {},
+        inactive_winbar = {},
         tabline = {
           lualine_a = {},
           lualine_b = {},

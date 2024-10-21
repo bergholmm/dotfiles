@@ -4,6 +4,12 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = {
+      defaults = {
+        layout_config = {
+          height = 0.95,
+          width = 0.95,
+        },
+      },
       pickers = {
         buffers = {
           initial_mode = "normal",

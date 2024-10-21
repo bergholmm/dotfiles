@@ -7,9 +7,9 @@
 #: characters.
 
 # font_family      monospace
-# font_family Iosevka
+font_family Iosevka
 # font_family IosevkaTerm Nerd Font
-font_family Iosevka Nerd Font Mono
+# font_family Iosevka Nerd Font Mono
 
 
 # bold_font        auto
@@ -29,7 +29,7 @@ font_family Iosevka Nerd Font Mono
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 18
+font_size 22
 
 #: Font size (in pts)
 
@@ -2247,6 +2247,6 @@ map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/
 
 
 # BEGIN_KITTY_THEME
-# Tokyo Night
+# Gruvbox-Material-Dark-Hard
 include current-theme.conf
 # END_KITTY_THEME

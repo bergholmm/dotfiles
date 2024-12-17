@@ -8,15 +8,6 @@ return {
     end,
   },
   {
-    "phaazon/hop.nvim",
-    event = "BufRead",
-    keys = { { "s", "<cmd>HopWord<cr>", desc = "Hop to word" } },
-    config = function()
-      require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-      vim.api.nvim_set_keymap("n", "s", ":HopWord<cr>", { silent = true })
-    end,
-  },
-  {
     "ThePrimeagen/harpoon",
     opts = {
       menu = {
@@ -43,17 +34,5 @@ return {
       end
       return keys
     end,
-  },
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "<leader>zs", function() require("persistence").load() end, desc = "Restore Session" },
-      { "<leader>zS", function() require("persistence").select() end,desc = "Select Session" },
-      { "<leader>zl", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>zd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-    },
   },
 }

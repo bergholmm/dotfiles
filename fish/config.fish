@@ -27,6 +27,7 @@ zoxide init fish | source
 starship init fish | source
 
 alias activate_venv='source /Users/marcus.bergholm/Dev/src/.venv/bin/activate.fish; and set -x PYTHONPATH .'
+alias x='exit'
 
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 set -x LC_ALL en_US.UTF-8

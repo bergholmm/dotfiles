@@ -10,3 +10,5 @@ vim.keymap.del("n", "<leader><tab><tab>")
 vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.del("n", "<leader><tab>d")
 vim.keymap.del("n", "<leader><tab>[")
+
+vim.keymap.set("x", "p", '"_dP', { noremap = true, silent = true })

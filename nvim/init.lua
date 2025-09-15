@@ -30,6 +30,7 @@ if vim.g.vscode then
   )
   keymap({ "n", "v" }, "<leader>b", "<cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
   keymap({ "n", "v" }, "<leader>z", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
+  keymap({ "n", "v" }, "<leader>fr", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
 
   keymap({ "n", "v" }, "<leader>x", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
   keymap({ "n", "v" }, "<C-x>", "<cmd>lua require('vscode').action('editor.action.marker.next')<CR>")

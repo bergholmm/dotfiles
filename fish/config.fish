@@ -19,6 +19,8 @@ set fish_greeting
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 
+set -x PATH (string match -v -- '/Users/marcus.bergholm/Dev/src/bin' $PATH)
+
 fish_add_path /opt/homebrew/bin
 set -x PATH (string match -v -- '/Users/marcus.bergholm/Dev/src/bin' $PATH)
 
@@ -43,3 +45,5 @@ set -x STARSHIP_CONFIG ~/.config/starship.toml
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 ~/.local/bin/mise activate fish | source
+
+source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"

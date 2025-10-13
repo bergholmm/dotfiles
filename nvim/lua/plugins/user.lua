@@ -1,6 +1,7 @@
 return {
   { "mg979/vim-visual-multi" },
   { "christoomey/vim-sort-motion" },
+  { "sindrets/diffview.nvim" },
   {
     "petertriho/nvim-scrollbar",
     config = function()
@@ -9,11 +10,6 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
-    opts = {
-      menu = {
-        width = vim.api.nvim_win_get_width(0),
-      },
-    },
     keys = function()
       -- stylua: ignore
       local keys = {
@@ -23,7 +19,8 @@ return {
         { "<S-Tab>", function() require("harpoon"):list():prev() end, desc = "Previous Harpoon file" },
         { "<Tab>", function() require("harpoon"):list():next() end, desc = "Next Harpoon file" },
       }
-      for i = 1, 5 do
+
+      for i = 1, 9 do
         table.insert(keys, {
           "<leader>" .. i,
           function()

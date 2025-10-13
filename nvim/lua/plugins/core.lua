@@ -1,13 +1,5 @@
 return {
-  {
-    "catppuccin",
-    optional = true,
-    -- temp fix
-    opts = function()
-      local bufferline = require("catppuccin.groups.integrations.bufferline")
-      bufferline.get = bufferline.get or bufferline.get_theme
-    end,
-  },
+  { "catppuccin" },
   {
     "LazyVim/LazyVim",
     opts = {

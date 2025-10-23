@@ -32,4 +32,26 @@ return {
       return keys
     end,
   },
+  {
+    "BourbonBidet/Barpoon",
+    dependencies = {
+      { "ThePrimeagen/harpoon", branch = "harpoon2" },
+      { "akinsho/bufferline.nvim" },
+    },
+    opts = {
+      pin_icon = false,
+    },
+  },
+
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        close_command = false,
+        right_mouse_command = false,
+        close_icon = "󰐃",
+        diagnostics = false,
+      },
+    },
+  },
 }

@@ -19,8 +19,18 @@ return {
           },
           globalstatus = false,
           disabled_filetypes = {
-            statusline = {},
-            winbar = {},
+            statusline = {
+              "dashboard",
+              "alpha",
+              "ministarter",
+              "snacks_dashboard",
+            },
+            winbar = {
+              "dashboard",
+              "alpha",
+              "ministarter",
+              "snacks_dashboard",
+            },
           },
           ignore_focus = {},
           always_divide_middle = true,
@@ -34,35 +44,38 @@ return {
         },
         sections = {},
         inactive_sections = {},
-        winbar = {},
         inactive_winbar = {},
-        tabline = {
+        tabline = {},
+        winbar = {
           lualine_a = {},
           lualine_b = {},
           lualine_c = {
-            "%=",
-            { "filetype", icon_only = true, padding = { left = 0, right = 0 } },
-            {
-              "filename",
-              path = 1, -- Show relative path
-              symbols = {
-                modified = "",
-                readonly = "",
-                unnamed = "",
-              },
-            },
-            {
-              function()
-                if vim.bo.modified then
-                  return "●"
-                else
-                  return ""
-                end
-              end,
-              color = { fg = "#63a699" },
-              padding = { left = 0, right = 0 },
-            },
+            { "navic", color_correction = "dynamic" },
           },
+          -- lualine_c = {
+          --   "%=",
+          --   { "filetype", icon_only = true, padding = { left = 0, right = 0 } },
+          --   {
+          --     "filename",
+          --     path = 1, -- Show relative path
+          --     symbols = {
+          --       modified = "",
+          --       readonly = "",
+          --       unnamed = "",
+          --     },
+          --   },
+          --   {
+          --     function()
+          --       if vim.bo.modified then
+          --         return "●"
+          --       else
+          --         return ""
+          --       end
+          --     end,
+          --     color = { fg = "#63a699" },
+          --     padding = { left = 0, right = 0 },
+          --   },
+          -- },
           lualine_x = {
             {
               "diagnostics",
@@ -91,6 +104,36 @@ return {
                 end
               end,
             },
+            {
+              function()
+                return require("noice").api.status.command.get()
+              end,
+              cond = function()
+                return package.loaded["noice"] and require("noice").api.status.command.has()
+              end,
+              color = function()
+                return { fg = Snacks.util.color("Statement") }
+              end,
+            },
+            {
+              function()
+                return require("noice").api.status.mode.get()
+              end,
+              cond = function()
+                return package.loaded["noice"] and require("noice").api.status.mode.has()
+              end,
+              color = function()
+                return { fg = Snacks.util.color("Constant") }
+              end,
+            },
+            {
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates,
+              color = function()
+                return { fg = Snacks.util.color("Special") }
+              end,
+            },
+            "branch",
           },
           lualine_y = {},
           lualine_z = {},

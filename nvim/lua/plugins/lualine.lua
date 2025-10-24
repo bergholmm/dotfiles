@@ -52,30 +52,6 @@ return {
           lualine_c = {
             { "navic", color_correction = "dynamic" },
           },
-          -- lualine_c = {
-          --   "%=",
-          --   { "filetype", icon_only = true, padding = { left = 0, right = 0 } },
-          --   {
-          --     "filename",
-          --     path = 1, -- Show relative path
-          --     symbols = {
-          --       modified = "",
-          --       readonly = "",
-          --       unnamed = "",
-          --     },
-          --   },
-          --   {
-          --     function()
-          --       if vim.bo.modified then
-          --         return "●"
-          --       else
-          --         return ""
-          --       end
-          --     end,
-          --     color = { fg = "#63a699" },
-          --     padding = { left = 0, right = 0 },
-          --   },
-          -- },
           lualine_x = {
             {
               "diagnostics",

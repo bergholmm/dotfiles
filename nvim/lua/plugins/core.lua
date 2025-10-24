@@ -39,9 +39,6 @@ return {
         ["<Tab>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
       },
-      sources = {
-        default = { "lsp", "path", "buffer" },
-      },
     },
   },
   {
@@ -106,28 +103,6 @@ return {
       on_attach = function()
         require("scrollbar.handlers.gitsigns").setup()
       end,
-    },
-  },
-  {
-    "ibhagwan/fzf-lua",
-    opts = {
-      fzf_opts = {
-        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
-      },
-      oldfiles = {
-        include_current_session = true,
-        winopts = { preview = { layout = "vertical" } },
-      },
-      previewers = {
-        builtin = {
-          syntax_limit_b = 1024 * 100, -- 100KB
-        },
-      },
-      grep = {
-        rg_glob = true, -- enable glob parsing
-        glob_flag = "--iglob", -- case insensitive globs
-        glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
-      },
     },
   },
 }

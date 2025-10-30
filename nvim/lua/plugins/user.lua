@@ -54,4 +54,29 @@ return {
       },
     },
   },
+  {
+    "obsidian-nvim/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    opts = {
+      workspaces = {
+        {
+          name = "Obisdian",
+          path = "~/Obisidian",
+        },
+      },
+      daily_notes = {
+        folder = "Journals",
+        date_format = "%Y/%b/%Y-%m-%d",
+        alias_format = "%B %-d, %Y",
+        template = "Daily template.md",
+      },
+      templates = {
+        folder = "Obsidian Extras/Templates",
+        -- date_format = "%Y-%m-%d",
+        -- time_format = "%H:%M",
+      },
+    },
+  },
 }

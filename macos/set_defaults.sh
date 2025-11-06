@@ -1,8 +1,5 @@
-# Use AirDrop over every interface
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
-
 # Always open everything in Finder's list view
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv" && killall Finder
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library

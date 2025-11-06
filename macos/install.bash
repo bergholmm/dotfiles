@@ -9,7 +9,7 @@ echo "Installing basic packages"
 brew install fish ripgrep fzf ranger neovim direnv mas python python3 rustup graphviz unzip golang wget fnm duf bat git-delta fd gnu-sed lazygit colima docker docker-Buildx coreutils curl k9s kubectx bash pnpm
 
 echo "Installing basic apps"
-brew install --cask insomnia slack visual-studio-code notion kitty notion-calendar obsidian font-iosevka-term-nerd-font font-iosevka-nerd-font font-iosevka rectangle unnaturalscrollwheels
+brew install --cask slack cursor notion kitty obsidian font-iosevka-term-nerd-font font-iosevka-nerd-font font-iosevka unnaturalscrollwheels arc raycast eurkey nordvpn
 
 # Remove last login when starting new terminal
 touch ~/.hushlogin

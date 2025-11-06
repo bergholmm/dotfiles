@@ -38,12 +38,8 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 set -x LC_ALL en_US.UTF-8
 set -x STARSHIP_CONFIG ~/.config/starship.toml
 
-# source $__fish_config_dir/themes/Github\ Dark\ Colorblind.fish
-# source $__fish_config_dir/themes/gruvbox.fish
-# source $__fish_config_dir/themes/vesper.fish
-
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 ~/.local/bin/mise activate fish | source
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+# source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"

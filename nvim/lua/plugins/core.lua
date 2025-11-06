@@ -12,32 +12,35 @@ return {
       inlay_hints = {
         enabled = false,
       },
-      servers = {
-        gopls = {
-          settings = {
-            gopls = {
-              gofumpt = true,
-              directoryFilters = {
-                "-**/bazel-bin",
-                "-**/bazel-out",
-                "-**/bazel-src",
-                "-**/bazel-testlogs",
-                "-**/node_modules",
-              },
-              semanticTokens = true,
-            },
-          },
-        },
-      },
     },
   },
   {
     "saghen/blink.cmp",
     opts = {
       keymap = {
-        preset = "enter",
-        ["<Tab>"] = { "select_next", "fallback" },
+        preset = "super-tab",
+        ["<Tab>"] = {
+          function(cmp)
+            if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+              cmp.hide()
+              return (
+                require("copilot-lsp.nes").apply_pending_nes()
+                and require("copilot-lsp.nes").walk_cursor_end_edit()
+              )
+            end
+            if cmp.snippet_active() then
+              return cmp.select_next()
+            else
+              return cmp.select_next()
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
         ["<S-Tab>"] = { "select_prev", "fallback" },
+        -- preset = "enter",
+        -- ["<Tab>"] = { "select_next", "fallback" },
+        -- ["<S-Tab>"] = { "select_prev", "fallback" },
       },
     },
   },
@@ -104,5 +107,27 @@ return {
         require("scrollbar.handlers.gitsigns").setup()
       end,
     },
+  },
+  { "copilotlsp-nvim/copilot-lsp" },
+  {
+    "zbirenbaum/copilot.lua",
+    requires = {
+      "copilotlsp-nvim/copilot-lsp",
+      -- init = function()
+      --   vim.g.copilot_nes_debounce = 500
+      -- end,
+    },
+    config = function()
+      require("copilot").setup({
+        nes = {
+          enabled = true,
+          keymap = {
+            accept_and_goto = "<leader>p",
+            accept = false,
+            dismiss = "<Esc>",
+          },
+        },
+      })
+    end,
   },
 }

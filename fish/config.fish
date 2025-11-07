@@ -19,10 +19,7 @@ set fish_greeting
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 
-set -x PATH (string match -v -- '/Users/marcus.bergholm/Dev/src/bin' $PATH)
-
 fish_add_path /opt/homebrew/bin
-set -x PATH (string match -v -- '/Users/marcus.bergholm/Dev/src/bin' $PATH)
 
 set -x LDFLAGS -L/opt/homebrew/opt/ruby/lib
 set -x CPPFLAGS -I/opt/homebrew/opt/ruby/include
@@ -31,9 +28,6 @@ direnv hook fish | source
 zoxide init fish | source
 starship init fish | source
 
-alias activate_venv='source /Users/marcus.bergholm/Dev/src/.venv/bin/activate.fish; and set -x PYTHONPATH .'
-alias x='exit'
-
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
 set -x LC_ALL en_US.UTF-8
 set -x STARSHIP_CONFIG ~/.config/starship.toml
@@ -41,5 +35,3 @@ set -x STARSHIP_CONFIG ~/.config/starship.toml
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 ~/.local/bin/mise activate fish | source
-
-# source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"

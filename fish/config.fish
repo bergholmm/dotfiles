@@ -24,7 +24,6 @@ fish_add_path /opt/homebrew/bin
 set -x LDFLAGS -L/opt/homebrew/opt/ruby/lib
 set -x CPPFLAGS -I/opt/homebrew/opt/ruby/include
 
-direnv hook fish | source
 zoxide init fish | source
 starship init fish | source
 

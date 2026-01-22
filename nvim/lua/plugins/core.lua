@@ -1,6 +1,6 @@
 return {
   {
-    dir = "/Users/marcus/Dev/cursor-dark.nvim",
+    "bergholmm/cursor-dark.nvim",
     priority = 1000,
     lazy = false,
     config = function()

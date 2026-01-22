@@ -18,8 +18,8 @@ set fish_greeting
 
 fish_add_path $HOME/.local/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
-
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/opt/openjdk@17/bin
 
 set -x LDFLAGS -L/opt/homebrew/opt/ruby/lib
 set -x CPPFLAGS -I/opt/homebrew/opt/ruby/include

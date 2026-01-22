@@ -18,29 +18,9 @@ return {
     "saghen/blink.cmp",
     opts = {
       keymap = {
-        preset = "super-tab",
-        ["<Tab>"] = {
-          function(cmp)
-            if vim.b[vim.api.nvim_get_current_buf()].nes_state then
-              cmp.hide()
-              return (
-                require("copilot-lsp.nes").apply_pending_nes()
-                and require("copilot-lsp.nes").walk_cursor_end_edit()
-              )
-            end
-            if cmp.snippet_active() then
-              return cmp.select_next()
-            else
-              return cmp.select_next()
-            end
-          end,
-          "snippet_forward",
-          "fallback",
-        },
+        preset = "enter",
+        ["<Tab>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
-        -- preset = "enter",
-        -- ["<Tab>"] = { "select_next", "fallback" },
-        -- ["<S-Tab>"] = { "select_prev", "fallback" },
       },
     },
   },
@@ -111,18 +91,19 @@ return {
   { "copilotlsp-nvim/copilot-lsp" },
   {
     "zbirenbaum/copilot.lua",
+    enable = false,
     requires = {
       "copilotlsp-nvim/copilot-lsp",
-      -- init = function()
-      --   vim.g.copilot_nes_debounce = 500
-      -- end,
+      init = function()
+        vim.g.copilot_nes_debounce = 250
+      end,
     },
     config = function()
       require("copilot").setup({
         nes = {
           enabled = true,
           keymap = {
-            accept_and_goto = "<leader>p",
+            accept_and_goto = "<leader>q",
             accept = false,
             dismiss = "<Esc>",
           },

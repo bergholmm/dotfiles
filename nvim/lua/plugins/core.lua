@@ -1,9 +1,17 @@
 return {
-  { "catppuccin" },
+  {
+    dir = "/Users/marcus/Dev/cursor-dark.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme("cursor-dark")
+    end,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "cursor-dark",
     },
   },
   {
@@ -88,27 +96,31 @@ return {
       end,
     },
   },
-  { "copilotlsp-nvim/copilot-lsp" },
   {
-    "zbirenbaum/copilot.lua",
-    enable = false,
-    requires = {
-      "copilotlsp-nvim/copilot-lsp",
-      init = function()
-        vim.g.copilot_nes_debounce = 250
-      end,
-    },
-    config = function()
-      require("copilot").setup({
-        nes = {
-          enabled = true,
-          keymap = {
-            accept_and_goto = "<leader>q",
-            accept = false,
-            dismiss = "<Esc>",
-          },
-        },
-      })
-    end,
+    "folke/noice.nvim",
+    enabled = false,
   },
+  -- { "copilotlsp-nvim/copilot-lsp" },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   enable = false,
+  --   requires = {
+  --     "copilotlsp-nvim/copilot-lsp",
+  --     init = function()
+  --       vim.g.copilot_nes_debounce = 250
+  --     end,
+  --   },
+  --   config = function()
+  --     require("copilot").setup({
+  --       nes = {
+  --         enabled = true,
+  --         keymap = {
+  --           accept_and_goto = "<leader>q",
+  --           accept = false,
+  --           dismiss = "<Esc>",
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }

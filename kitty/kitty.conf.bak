@@ -2247,6 +2247,13 @@ map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/
 
 
 # BEGIN_KITTY_THEME
-# Vesper
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
+
+
+# Map Shift+Enter to send a newline in the Claude terminal
+map --when-focus-on title:claude shift+enter send_text normal,application \\\n
+
+map kitty_mod+t launch --cwd=current --type=tab
+map cmd+t       launch --cwd=current --type=tab

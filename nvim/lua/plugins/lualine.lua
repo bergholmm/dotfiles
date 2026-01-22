@@ -5,7 +5,7 @@ return {
     opts = function()
       local icons = require("lazyvim.config").icons
       local auto_theme_custom = require("lualine.themes.auto")
-      auto_theme_custom.normal.c.bg = "none"
+      auto_theme_custom.normal.c.bg = "#181818"
 
       return {
         options = {

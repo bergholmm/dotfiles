@@ -57,9 +57,19 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     version = "*",
-    lazy = true,
-    ft = "markdown",
+    lazy = false,
+    keys = {
+      { "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+      { "<leader>oy", "<cmd>Obsidian yesterday<cr>", desc = "Obsidian Yesterday" },
+      { "<leader>os", "<cmd>Obsidian search<cr>", desc = "Obsidian Search" },
+      { "<leader>oo", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
+      { "<leader>ob", "<cmd>Obsidian backlinks<cr>", desc = "Obsidian Backlinks" },
+      { "<leader>on", "<cmd>Obsidian new<cr>", desc = "Obsidian New" },
+      { "<leader>ol", "<cmd>Obsidian follow_link<cr>", desc = "Obsidian Follow Link" },
+      { "<leader>oc", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Obsidian Toggle Checkbox" },
+    },
     opts = {
+      legacy_commands = false,
       workspaces = {
         {
           name = "Obisdian",

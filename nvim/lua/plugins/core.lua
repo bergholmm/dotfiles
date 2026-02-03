@@ -98,7 +98,7 @@ return {
   },
   {
     "folke/noice.nvim",
-    enabled = false,
+    enabled = true,
   },
   -- { "copilotlsp-nvim/copilot-lsp" },
   -- {

@@ -1,0 +1,29 @@
+# Cursor Dark theme for Ghostty
+
+# Basic colors
+background = 181818
+foreground = d5d5d5
+cursor-color = d5d5d5
+cursor-text = 181818
+selection-background = 5a5a5a
+selection-foreground = 181818
+
+# Normal colors (0-7)
+palette = 0=#242424
+palette = 1=#fc6b83
+palette = 2=#3fa266
+palette = 3=#d2943e
+palette = 4=#81a1c1
+palette = 5=#b48ead
+palette = 6=#88c0d0
+palette = 7=#e4e4e4
+
+# Bright colors (8-15)
+palette = 8=#4a4a4a
+palette = 9=#fc6b83
+palette = 10=#70b489
+palette = 11=#f1b467
+palette = 12=#87a6c4
+palette = 13=#b48ead
+palette = 14=#88c0d0
+palette = 15=#e4e4e4

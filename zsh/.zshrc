@@ -22,18 +22,11 @@ fi
 
 eval "$("$HOME/.local/bin/mise" activate zsh)"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-if [[ -n "$CURSOR_AGENT" ]]; then
-  echo "Cursor agent is running"
-else
-  # Launch fish
-  if [[ -o interactive && -o login && $SHLVL -eq 1 ]]; then
-    parent_cmd=$(ps -p $PPID -o comm=)
-    if [[ $parent_cmd != fish ]] && command -v fish >/dev/null 2>&1; then
-      exec fish --login
-    fi
+# Launch fish
+if [[ -o interactive && -o login && $SHLVL -eq 1 ]]; then
+  parent_cmd=$(ps -p $PPID -o comm=)
+  if [[ $parent_cmd != fish ]] && command -v fish >/dev/null 2>&1; then
+    exec fish --login
   fi
 fi
 

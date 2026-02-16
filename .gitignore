@@ -16,3 +16,5 @@ direnv/allow
 
 nvim/plugin/*
 lvim/plugin/*
+
+tmux/plugins/*

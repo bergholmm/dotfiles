@@ -1,7 +1,5 @@
 function vi_key_bindings
     fish_vi_key_bindings
-    bind -M insert -m default jj force-repaint
-    bind -M visual -m default jj force-repaint
 end
 
 # Hide vim mode indicator
@@ -28,6 +26,7 @@ zoxide init fish | source
 starship init fish | source
 
 set -gx FZF_DEFAULT_COMMAND 'rg --files --follow --hidden'
+fzf --fish | source
 set -x LC_ALL en_US.UTF-8
 set -x STARSHIP_CONFIG ~/.config/starship.toml
 

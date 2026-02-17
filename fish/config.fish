@@ -33,3 +33,7 @@ set -x STARSHIP_CONFIG ~/.config/starship.toml
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 ~/.local/bin/mise activate fish | source
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

@@ -32,15 +32,32 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""                # Prompt handled by starship
 DISABLE_AUTO_UPDATE="true"  # Let brew/git manage updates
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source "$ZSH/oh-my-zsh.sh"
+
+# ============================================================================
+# History
+# ============================================================================
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE="$HOME/.zsh_history"
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS HIST_VERIFY INC_APPEND_HISTORY
 
 # ============================================================================
 # Vi keybindings (no mode indicator — starship handles prompt)
 # ============================================================================
 bindkey -v
 export KEYTIMEOUT=1
+
+# Fish-style up-arrow prefix history search
+autoload -U up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey -M viins '^[[A' up-line-or-beginning-search
+bindkey -M viins '^[[B' down-line-or-beginning-search
 
 # ============================================================================
 # Custom functions (autoloaded from dotfiles/zsh/functions/)

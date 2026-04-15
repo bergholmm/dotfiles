@@ -37,6 +37,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source "$ZSH/oh-my-zsh.sh"
 
 # ============================================================================
+# Undo OMZ's colorful `ls` aliases (match fish's plain output)
+# ============================================================================
+unalias ls la ll l 2>/dev/null
+unset LSCOLORS LS_COLORS
+
+# ============================================================================
 # History
 # ============================================================================
 HISTSIZE=50000

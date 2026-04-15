@@ -18,6 +18,8 @@ fish_add_path $HOME/.local/bin
 fish_add_path /opt/homebrew/opt/ruby/bin
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/opt/openjdk@17/bin
+fish_add_path $HOME/Library/Android/sdk/platform-tools
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
 
 set -x LDFLAGS -L/opt/homebrew/opt/ruby/lib
 set -x CPPFLAGS -I/opt/homebrew/opt/ruby/include
@@ -37,3 +39,6 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Koda
+set -gx PATH /Users/marcus/.koda/bin $PATH

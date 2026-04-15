@@ -43,6 +43,18 @@ unalias ls la ll l 2>/dev/null
 unset LSCOLORS LS_COLORS
 
 # ============================================================================
+# Syntax-highlighting tweaks — recognized commands in blue (fish-like)
+# Uses ANSI slot names so the terminal palette (cursor-dark) drives the hue.
+# ============================================================================
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[command]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=blue,underline'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=blue'
+
+# ============================================================================
 # History
 # ============================================================================
 HISTSIZE=50000

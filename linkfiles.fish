@@ -27,10 +27,8 @@ for zf in .zshrc .zshenv
     ln -sf $dir/zsh/$zf ~/$zf
 end
 
-# Symlink functions/, aliases.zsh, themes/ into ~/.config/zsh so .zshrc can find them
+# Symlink functions/ and aliases.zsh into ~/.config/zsh so fpath works
 echo "Creating symlink: ~/.config/zsh/functions -> $dir/zsh/functions"
 ln -sfn $dir/zsh/functions ~/.config/zsh/functions
 echo "Creating symlink: ~/.config/zsh/aliases.zsh -> $dir/zsh/aliases.zsh"
 ln -sf $dir/zsh/aliases.zsh ~/.config/zsh/aliases.zsh
-echo "Creating symlink: ~/.config/zsh/themes -> $dir/zsh/themes"
-ln -sfn $dir/zsh/themes ~/.config/zsh/themes

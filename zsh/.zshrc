@@ -1,32 +1,65 @@
+# ============================================================================
 # Environment
+# ============================================================================
 export EDITOR="nvim"
-alias n="nvim"
-
-# PATH setup
-typeset -U path PATH
-path=("$HOME/.local/bin" "/opt/homebrew/opt/ruby/bin" "/opt/homebrew/bin" $path)
-
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
-
-# Tools
-eval "$(zoxide init zsh)"
-
-export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
 export LC_ALL="en_US.UTF-8"
 
-# Generated for envman. Do not edit.
-if [ -s "$HOME/.config/envman/load.zsh" ]; then
-  source "$HOME/.config/envman/load.zsh"
-fi
+# ============================================================================
+# PATH
+# ============================================================================
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "/opt/homebrew/opt/ruby/bin"
+  "/opt/homebrew/bin"
+  "/opt/homebrew/opt/openjdk@17/bin"
+  "$HOME/Library/Android/sdk/platform-tools"
+  "$HOME/.bun/bin"
+  "$HOME/.koda/bin"
+  $path
+)
 
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export BUN_INSTALL="$HOME/.bun"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export STARSHIP_CONFIG="$HOME/.config/starship.toml"
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+
+# ============================================================================
+# oh-my-zsh
+# ============================================================================
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""                # Prompt handled by starship
+DISABLE_AUTO_UPDATE="true"  # Let brew/git manage updates
+plugins=(git)
+
+source "$ZSH/oh-my-zsh.sh"
+
+# ============================================================================
+# Vi keybindings (no mode indicator — starship handles prompt)
+# ============================================================================
+bindkey -v
+export KEYTIMEOUT=1
+
+# ============================================================================
+# Custom functions (autoloaded from dotfiles/zsh/functions/)
+# ============================================================================
+fpath=("$HOME/.config/zsh/functions" $fpath)
+autoload -Uz gbage gtest ggtr
+
+# ============================================================================
+# Aliases
+# ============================================================================
+source "$HOME/.config/zsh/aliases.zsh"
+
+# ============================================================================
+# Tool inits
+# ============================================================================
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+source <(fzf --zsh)
 eval "$("$HOME/.local/bin/mise" activate zsh)"
 
-# Launch fish
-if [[ -o interactive && -o login && $SHLVL -eq 1 ]]; then
-  parent_cmd=$(ps -p $PPID -o comm=)
-  if [[ $parent_cmd != fish ]] && command -v fish >/dev/null 2>&1; then
-    exec fish --login
-  fi
-fi
-
+# envman
+[[ -s "$HOME/.config/envman/load.zsh" ]] && source "$HOME/.config/envman/load.zsh"

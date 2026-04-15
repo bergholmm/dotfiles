@@ -1,0 +1,12 @@
+# Run a command against the git index only (staged changes, working dir hidden).
+git stash push -q --keep-index --include-untracked || return
+
+local cmdstatus
+"$@"
+cmdstatus=$?
+
+git reset -q
+git restore .
+git stash pop -q --index || return $?
+
+return $cmdstatus

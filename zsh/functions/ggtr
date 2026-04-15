@@ -1,0 +1,52 @@
+local cmd="$1"
+shift
+local base="$HOME/Dev/worktrees"
+
+if [[ -z "$cmd" ]]; then
+  print -u2 "Usage: ggtr {create|rm|cd|claude} <name>"
+  return 1
+fi
+
+case "$cmd" in
+  create)
+    for name in "$@"; do
+      git worktree add "$base/$name" -b "mg/$name"
+    done
+    ;;
+  rm|remove)
+    for name in "$@"; do
+      git worktree remove "$base/$name"
+    done
+    ;;
+  cd)
+    if [[ -z "$1" ]]; then
+      print -u2 "Usage: ggtr cd <name>"
+      return 1
+    fi
+    cd "$base/$1" || { print -u2 "No such worktree: $base/$1"; return 1; }
+    ;;
+  claude)
+    if [[ -z "$1" ]]; then
+      print -u2 "Usage: ggtr claude <name>"
+      return 1
+    fi
+    local dir="$base/$1"
+    if [[ ! -d "$dir" ]]; then
+      print -n "Worktree '$1' doesn't exist. Create it now? [y/N] "
+      local reply
+      read -r reply
+      if [[ "$reply" == [Yy]* ]]; then
+        print "Creating worktree '$1'…"
+        git worktree add "$dir" -b "mg/$1" || return 1
+      else
+        print "Aborted."
+        return 1
+      fi
+    fi
+    pushd "$dir" && claude; popd
+    ;;
+  *)
+    print -u2 "Unknown sub-command: $cmd (use create, rm, cd, claude)"
+    return 1
+    ;;
+esac

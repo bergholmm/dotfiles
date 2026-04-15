@@ -37,6 +37,14 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source "$ZSH/oh-my-zsh.sh"
 
 # ============================================================================
+# Theme (Catppuccin Mocha — matches old fish config)
+# ============================================================================
+# Syntax highlighting palette (must load AFTER zsh-syntax-highlighting plugin)
+source "$HOME/.config/zsh/themes/catppuccin-mocha.zsh"
+# Autosuggest text color (Mocha overlay0)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6c7086'
+
+# ============================================================================
 # History
 # ============================================================================
 HISTSIZE=50000

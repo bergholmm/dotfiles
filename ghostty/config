@@ -2,6 +2,7 @@ theme = cursor-dark
 
 
 font-family = Iosevka
+# font-family = Geist Mono
 font-style = Medium
 font-style-bold = Bold
 font-style-italic = Medium Italic

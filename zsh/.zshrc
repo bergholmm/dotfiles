@@ -94,7 +94,19 @@ source "$HOME/.config/zsh/aliases.zsh"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 source <(fzf --zsh)
-eval "$("$HOME/.local/bin/mise" activate zsh)"
+
+# Claude Code and Codex both snapshot the shell env once and replay it
+# non-interactively for every tool call. `mise activate`'s precmd hook re-
+# prepends the current install bin on every prompt — so whichever way we try
+# to put shims first, the hook runs last during snapshot capture and wins.
+# Shim-only (no activate) side-steps this: shims resolve via `mise` at exec
+# time and work identically in non-interactive shells.
+if [[ -n $CLAUDECODE || -n $CODEX_SANDBOX ]]; then
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
+  echo "[zshrc] shim-only mode (CLAUDECODE=$CLAUDECODE CODEX_SANDBOX=$CODEX_SANDBOX)" >> /tmp/zshrc-debug.log
+else
+  eval "$("$HOME/.local/bin/mise" activate zsh)"
+fi
 
 # envman
 [[ -s "$HOME/.config/envman/load.zsh" ]] && source "$HOME/.config/envman/load.zsh"

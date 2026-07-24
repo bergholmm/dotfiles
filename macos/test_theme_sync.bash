@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+state_dir="$(mktemp -d)"
+trap 'rm -rf "$state_dir"' EXIT
+
+cd "$repo_dir"
+
+echo "Checking script syntax"
+bash -n macos/sync_theme.bash
+
+echo "Checking dry-run light mode"
+XDG_STATE_HOME="$state_dir" macos/sync_theme.bash --mode light --dry-run --skip-reload | grep -q "mode=light"
+
+echo "Checking dry-run dark mode"
+XDG_STATE_HOME="$state_dir" macos/sync_theme.bash --mode dark --dry-run --skip-reload | grep -q "mode=dark"
+
+echo "Checking dark-notify positional mode"
+XDG_STATE_HOME="$state_dir" macos/sync_theme.bash light --dry-run --skip-reload | grep -q "mode=light"
+
+echo "Checking generated light state"
+XDG_STATE_HOME="$state_dir" macos/sync_theme.bash --mode light --skip-reload
+grep -q "DOTFILES_CATPPUCCIN_MODE=light" "$state_dir/dotfiles-theme/zsh-theme.zsh"
+test -L "$state_dir/dotfiles-theme/tmux-theme.conf"
+readlink "$state_dir/dotfiles-theme/tmux-theme.conf" | grep -q "catppuccin-latte.conf"
+test -f "$(readlink "$state_dir/dotfiles-theme/tmux-theme.conf")"
+
+echo "Checking generated dark state"
+XDG_STATE_HOME="$state_dir" macos/sync_theme.bash --mode dark --skip-reload
+grep -q "DOTFILES_CATPPUCCIN_MODE=dark" "$state_dir/dotfiles-theme/zsh-theme.zsh"
+readlink "$state_dir/dotfiles-theme/tmux-theme.conf" | grep -q "catppuccin-mocha.conf"
+test -f "$(readlink "$state_dir/dotfiles-theme/tmux-theme.conf")"
+
+echo "theme sync checks passed"

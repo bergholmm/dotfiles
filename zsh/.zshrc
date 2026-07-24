@@ -55,6 +55,11 @@ ZSH_HIGHLIGHT_STYLES[precommand]='fg=blue,underline'
 ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=blue'
 
 # ============================================================================
+# Catppuccin theme sync
+# ============================================================================
+[[ -s "$HOME/.config/zsh/theme.zsh" ]] && source "$HOME/.config/zsh/theme.zsh"
+
+# ============================================================================
 # History
 # ============================================================================
 HISTSIZE=50000

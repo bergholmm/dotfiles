@@ -32,4 +32,13 @@ grep -q "DOTFILES_CATPPUCCIN_MODE=dark" "$state_dir/dotfiles-theme/zsh-theme.zsh
 readlink "$state_dir/dotfiles-theme/tmux-theme.conf" | grep -q "catppuccin-mocha.conf"
 test -f "$(readlink "$state_dir/dotfiles-theme/tmux-theme.conf")"
 
+if command -v tmux >/dev/null 2>&1; then
+  echo "Checking tmux theme files"
+  tmux -L dotfiles-theme-test -f /dev/null new-session -d
+  trap 'tmux -L dotfiles-theme-test kill-server 2>/dev/null || true; rm -rf "$state_dir"' EXIT
+  tmux -L dotfiles-theme-test source-file tmux/themes/catppuccin-latte.conf
+  tmux -L dotfiles-theme-test source-file tmux/themes/catppuccin-mocha.conf
+  tmux -L dotfiles-theme-test kill-server
+fi
+
 echo "theme sync checks passed"

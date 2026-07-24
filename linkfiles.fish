@@ -32,3 +32,5 @@ echo "Creating symlink: ~/.config/zsh/functions -> $dir/zsh/functions"
 ln -sfn $dir/zsh/functions ~/.config/zsh/functions
 echo "Creating symlink: ~/.config/zsh/aliases.zsh -> $dir/zsh/aliases.zsh"
 ln -sf $dir/zsh/aliases.zsh ~/.config/zsh/aliases.zsh
+echo "Creating symlink: ~/.config/zsh/theme.zsh -> $dir/zsh/theme.zsh"
+ln -sf $dir/zsh/theme.zsh ~/.config/zsh/theme.zsh

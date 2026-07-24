@@ -497,8 +497,10 @@ Run:
 fish -n fish/conf.d/zz_catppuccin_theme.fish
 zsh -n zsh/theme.zsh
 zsh -n zsh/.zshrc
-tmux -f /dev/null source-file tmux/themes/catppuccin-latte.conf
-tmux -f /dev/null source-file tmux/themes/catppuccin-mocha.conf
+tmux -L dotfiles-theme-test -f /dev/null new-session -d
+tmux -L dotfiles-theme-test source-file tmux/themes/catppuccin-latte.conf
+tmux -L dotfiles-theme-test source-file tmux/themes/catppuccin-mocha.conf
+tmux -L dotfiles-theme-test kill-server
 bash macos/test_theme_sync.bash
 ```
 

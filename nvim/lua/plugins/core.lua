@@ -1,17 +1,61 @@
 return {
   {
-    "bergholmm/cursor-dark.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     lazy = false,
-    config = function()
+    opts = {
+      flavour = "mocha",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
+      integrations = {
+        blink_cmp = true,
+        bufferline = true,
+        gitsigns = true,
+        lsp_trouble = true,
+        native_lsp = {
+          enabled = true,
+        },
+        noice = true,
+        notify = true,
+        treesitter = true,
+        which_key = true,
+      },
+    },
+    config = function(_, opts)
       vim.opt.termguicolors = true
-      vim.cmd.colorscheme("cursor-dark")
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme(vim.o.background == "light" and "catppuccin-latte" or "catppuccin-mocha")
+    end,
+  },
+  {
+    "f-person/auto-dark-mode.nvim",
+    lazy = false,
+    config = function()
+      local auto_dark_mode = require("auto-dark-mode")
+
+      auto_dark_mode.setup({
+        update_interval = 1000,
+        fallback = "dark",
+        set_dark_mode = function()
+          vim.o.background = "dark"
+          vim.cmd.colorscheme("catppuccin-mocha")
+        end,
+        set_light_mode = function()
+          vim.o.background = "light"
+          vim.cmd.colorscheme("catppuccin-latte")
+        end,
+      })
+
+      auto_dark_mode.init()
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "cursor-dark",
+      colorscheme = "catppuccin-mocha",
     },
   },
   {

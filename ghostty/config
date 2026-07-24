@@ -1,4 +1,4 @@
-theme = cursor-dark
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 
 
 font-family = Iosevka

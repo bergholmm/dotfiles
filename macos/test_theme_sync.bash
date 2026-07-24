@@ -41,4 +41,14 @@ if command -v tmux >/dev/null 2>&1; then
   tmux -L dotfiles-theme-test kill-server
 fi
 
+echo "Checking LaunchAgent template"
+test -f macos/launchagents/com.marcus.dotfiles.theme-sync.plist.template
+rendered_plist="$state_dir/com.marcus.dotfiles.theme-sync.plist"
+sed \
+  -e "s#__DOTFILES_DIR__#$repo_dir#g" \
+  -e "s#__HOMEBREW_PREFIX__#/opt/homebrew#g" \
+  -e "s#__HOME__#$HOME#g" \
+  macos/launchagents/com.marcus.dotfiles.theme-sync.plist.template > "$rendered_plist"
+plutil -lint "$rendered_plist" >/dev/null
+
 echo "theme sync checks passed"

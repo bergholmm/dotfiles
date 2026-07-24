@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.marcus.dotfiles.theme-sync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__HOMEBREW_PREFIX__/bin/dark-notify</string>
+    <string>-c</string>
+    <string>__DOTFILES_DIR__/macos/sync_theme.bash</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/dotfiles-theme-sync.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/dotfiles-theme-sync.err.log</string>
+</dict>
+</plist>

@@ -39,6 +39,3 @@ test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-
-# Koda
-set -gx PATH /Users/marcus/.koda/bin $PATH
